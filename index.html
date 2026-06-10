@@ -106,6 +106,22 @@
   .acc .pw{font-family:'Fraunces';font-weight:700;color:var(--ink)}
   .live{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:#e8f3ec;color:#226c45;padding:3px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
 
+  /* Itinerary (nights + driving hours) */
+  .itin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:18px;margin-top:24px}
+  .itin-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 8px;box-shadow:var(--shadow)}
+  .itin-h{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+  .itin-key{font-family:'Fraunces';font-weight:800;color:#fff;width:26px;height:26px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem}
+  .itin-name{font-weight:700;font-size:.96rem}
+  .itin-tot{flex-basis:100%;font-size:.74rem;color:var(--ink-soft)}
+  .legs{list-style:none;margin:0;padding:0;font-size:.84rem}
+  .legs li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line)}
+  .legs li:last-child{border-bottom:0}
+  .leg-rt{color:var(--ink)}
+  .leg-hr{font-family:'Fraunces';font-weight:700;color:var(--ink-soft);white-space:nowrap}
+  .leg-hr.long{color:var(--sun)}
+  .bed{font-size:15px;line-height:20px;text-align:center;filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))}
+  .leaflet-tooltip.pin.sleep{border-color:var(--sun)}
+
   /* Verdict */
   .verdict{margin-top:30px;border-radius:20px;padding:30px;color:#fff;
     background:linear-gradient(120deg,#2e8b57,#1c5870);box-shadow:var(--shadow)}
@@ -192,8 +208,8 @@
       <p class="eyebrow">The four routes</p>
       <h2>One start, one finish, four ways through Europe</h2>
       <p>Toggle routes top-right — isolate one to read just its stops (every stop is marked). All begin at
-        Calais and end at Csopak on Lake Balaton. Central routes (C/D) run via Nürnberg–Linz–Vienna to steer
-        clear of Munich and the Tauern/Balkan-transit jams.</p>
+        Calais and end at Csopak on Lake Balaton. <b>🛏 = where you sleep.</b> Central routes (C/D) run via
+        Nürnberg–Linz–Vienna to steer clear of Munich and the Tauern/Balkan-transit jams.</p>
     </div>
     <div id="map"></div>
     <div class="maplead">
@@ -203,6 +219,19 @@
       <span class="lg"><span class="swatch" style="background:var(--rt-c)"></span> C · Central via Vienna (frugal)</span>
       <span class="lg"><span class="swatch" style="background:var(--rt-d);background-image:repeating-linear-gradient(90deg,var(--rt-d),var(--rt-d) 6px,transparent 6px,transparent 11px)"></span> D · Rotterdam (family-first)</span>
     </div>
+  </div>
+</section>
+
+<section id="itin-sec" style="padding-top:6px">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Nights &amp; driving</p>
+      <h2>Where you sleep · hours per leg</h2>
+      <p>🛏 marks an overnight stop (also pinned on the map above). Driving times are <b>live from OSRM</b>
+        motorway routing — that's moving time before breaks; <span style="color:var(--sun);font-weight:600">amber</span>
+        legs run over 6h. You said some days that's fine.</p>
+    </div>
+    <div id="itin" class="itin-grid"></div>
   </div>
 </section>
 
@@ -245,7 +274,7 @@
           <p class="route">Calais → Reims → Lyon/Provence → Avignon → Genova → Verona → Rovinj (2) → Csopak</p>
           <div class="stats">
             <div class="stat"><span class="n">6</span><span class="l">days</span></div>
-            <div class="stat"><span class="n">4</span><span class="l">paid nights</span></div>
+            <div class="stat"><span class="n">5</span><span class="l">paid nights</span></div>
             <div class="stat"><span class="n">~£2.2–3.2k</span><span class="l">cost</span></div>
           </div>
           <ul class="pl">
@@ -267,7 +296,7 @@
           <p class="route">Calais → Reims → Basel → Luzern (Alps) → Milan → Verona → Rovinj (2) → Csopak</p>
           <div class="stats">
             <div class="stat"><span class="n">5</span><span class="l">days</span></div>
-            <div class="stat"><span class="n">3</span><span class="l">paid nights</span></div>
+            <div class="stat"><span class="n">4</span><span class="l">paid nights</span></div>
             <div class="stat"><span class="n">~£2.1–3.0k</span><span class="l">cost</span></div>
           </div>
           <ul class="pl">
@@ -310,16 +339,16 @@
         <div class="opt-body">
           <span class="badge family">Family-first</span>
           <h3>D · Via Rotterdam</h3>
-          <p class="route">Calais → Rotterdam (2) → Köln → Frankfurt → Nürnberg → Linz → Vienna → Csopak</p>
+          <p class="route">Calais → Rotterdam (2) → Luxembourg → Frankfurt → Nürnberg → Linz → Vienna → Csopak</p>
           <div class="stats">
             <div class="stat"><span class="n">6</span><span class="l">days</span></div>
-            <div class="stat"><span class="n">~4</span><span class="l">paid nights</span></div>
+            <div class="stat"><span class="n">~2</span><span class="l">paid nights</span></div>
             <div class="stat"><span class="n">~£1.1–1.7k</span><span class="l">cost</span></div>
           </div>
           <ul class="pl">
             <li class="p">A proper gathering at your brother's home — with Mum there too</li>
             <li class="p">2 nights likely free at your brother's; a home visit ≠ the SZIN crowd</li>
-            <li class="p">Cheaper than either Med route; Salzburg/Bavaria breaks the drive</li>
+            <li class="p">Cheaper than either Med route; drop south via Luxembourg (cheap fuel)</li>
             <li class="c">Northern detour adds ~a day &amp; some backtrack</li>
             <li class="c">No Mediterranean this year</li>
           </ul>
@@ -365,12 +394,12 @@
         <div class="amt">£2.8–4.0k</div>
       </div>
       <div class="crow">
-        <div class="nm">B · Trimmed Med<small>4 nights · £1,260 beds</small></div>
+        <div class="nm">B · Trimmed Med<small>5 nights · £1,260 beds</small></div>
         <div class="track"><div class="fill" style="width:80%;background:var(--rt-b)"></div></div>
         <div class="amt">£2.2–3.2k</div>
       </div>
       <div class="crow">
-        <div class="nm">E · Via Switzerland<small>3 nights · £1,310 beds</small></div>
+        <div class="nm">E · Via Switzerland<small>4 nights · £1,310 beds</small></div>
         <div class="track"><div class="fill" style="width:75%;background:var(--rt-e)"></div></div>
         <div class="amt">£2.1–3.0k</div>
       </div>
@@ -427,30 +456,38 @@
     verona:[45.44,10.99], rovinj:[45.08,13.64], opatija:[45.34,14.31],
     munich:[48.14,11.58], salzburg:[47.81,13.04], graz:[47.07,15.44],
     basel:[47.56,7.59], luzern:[47.05,8.31], nurnberg:[49.45,11.08], linz:[48.31,14.29], wien:[48.21,16.37],
-    csopak:[46.96,17.90]
+    luxembourg:[49.61,6.13], csopak:[46.96,17.90]
   };
   const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 
   // each route = ordered, named stops. A is coastal; B diverges inland (Turin/Milan) so it reads distinctly.
   const R={
-    A:{color:css('--rt-a'),dash:null,stops:[['Calais',P.calais],['Reims',P.reims],['Lyon',P.lyon],['Avignon',P.avignon],['Cannes',P.cannes],['Monaco',P.monaco],['Genova',P.genova],['Verona',P.verona],['Rovinj',P.rovinj],['Opatija',P.opatija],['Csopak',P.csopak]]},
-    B:{color:css('--rt-b'),dash:'8 7',stops:[['Calais',P.calais],['Reims',P.reims],['Lyon',P.lyon],['Torino',P.torino],['Milano',P.milano],['Verona',P.verona],['Rovinj',P.rovinj],['Csopak',P.csopak]]},
-    E:{color:css('--rt-e'),dash:null,stops:[['Calais',P.calais],['Reims',P.reims],['Basel',P.basel],['Luzern',P.luzern],['Milano',P.milano],['Verona',P.verona],['Rovinj',P.rovinj],['Csopak',P.csopak]]},
-    C:{color:css('--rt-c'),dash:null,stops:[['Calais',P.calais],['Brussels',P.brussels],['Köln',P.cologne],['Frankfurt',P.frankfurt],['Nürnberg',P.nurnberg],['Linz',P.linz],['Wien',P.wien],['Csopak',P.csopak]]},
-    D:{color:css('--rt-d'),dash:'11 9',stops:[['Calais',P.calais],['Rotterdam',P.rotterdam],['Köln',P.cologne],['Frankfurt',P.frankfurt],['Nürnberg',P.nurnberg],['Linz',P.linz],['Wien',P.wien],['Csopak',P.csopak]]}
+    A:{color:css('--rt-a'),dash:null,name:'Full Med',nights:6,sleep:['Reims','Avignon','Cannes','Verona','Rovinj'],stops:[['Calais',P.calais],['Reims',P.reims],['Lyon',P.lyon],['Avignon',P.avignon],['Cannes',P.cannes],['Monaco',P.monaco],['Genova',P.genova],['Verona',P.verona],['Rovinj',P.rovinj],['Opatija',P.opatija],['Csopak',P.csopak]]},
+    B:{color:css('--rt-b'),dash:'8 7',name:'Trimmed Med',nights:5,sleep:['Reims','Milano','Verona','Rovinj'],stops:[['Calais',P.calais],['Reims',P.reims],['Lyon',P.lyon],['Torino',P.torino],['Milano',P.milano],['Verona',P.verona],['Rovinj',P.rovinj],['Csopak',P.csopak]]},
+    E:{color:css('--rt-e'),dash:null,name:'Swiss Alps',nights:4,sleep:['Reims','Luzern','Rovinj'],stops:[['Calais',P.calais],['Reims',P.reims],['Basel',P.basel],['Luzern',P.luzern],['Milano',P.milano],['Verona',P.verona],['Rovinj',P.rovinj],['Csopak',P.csopak]]},
+    C:{color:css('--rt-c'),dash:null,name:'Central · Vienna',nights:2,sleep:['Nürnberg','Wien'],stops:[['Calais',P.calais],['Brussels',P.brussels],['Köln',P.cologne],['Frankfurt',P.frankfurt],['Nürnberg',P.nurnberg],['Linz',P.linz],['Wien',P.wien],['Csopak',P.csopak]]},
+    D:{color:css('--rt-d'),dash:'11 9',name:'Rotterdam · via Luxembourg',nights:'4 (2 free)',sleep:['Rotterdam','Frankfurt','Wien'],stops:[['Calais',P.calais],['Rotterdam',P.rotterdam],['Luxembourg',P.luxembourg],['Frankfurt',P.frankfurt],['Nürnberg',P.nurnberg],['Linz',P.linz],['Wien',P.wien],['Csopak',P.csopak]]}
   };
-  const bigStop={'Calais':1,'Rovinj':1,'Csopak':1,'Rotterdam':1};
+  const dbl={'Rovinj':1,'Rotterdam':1};      // 2-night stays
+  const freeStay={'Rotterdam':1};            // hosted / free
+  const endpt={'Calais':1,'Csopak':1};
+  const sleepLabel=name=>'🛏 '+name+(dbl[name]?' ×2':'')+(freeStay[name]?' · free':'');
 
   const groups={};
   Object.entries(R).forEach(([k,r])=>{
     groups[k]=L.layerGroup().addTo(map);
     r.stops.forEach(([name,ll])=>{
-      L.circleMarker(ll,{radius:bigStop[name]?7:5,color:'#fff',weight:2,fillColor:r.color,fillOpacity:1,pane:'markerPane'})
-        .addTo(groups[k]).bindTooltip(name,{permanent:true,direction:'top',className:'pin',offset:[0,-5]});
+      if(r.sleep.includes(name)){
+        L.marker(ll,{icon:L.divIcon({className:'bed',html:'🛏',iconSize:[20,20],iconAnchor:[10,10]}),zIndexOffset:600})
+          .addTo(groups[k]).bindTooltip(sleepLabel(name),{permanent:true,direction:'top',className:'pin sleep',offset:[0,-9]});
+      }else{
+        L.circleMarker(ll,{radius:endpt[name]?7:4.5,color:'#fff',weight:2,fillColor:r.color,fillOpacity:1,pane:'markerPane'})
+          .addTo(groups[k]).bindTooltip(name,{permanent:true,direction:'top',className:'pin',offset:[0,-5]});
+      }
     });
   });
 
-  // straight line as instant fallback, upgraded to real road geometry from OSRM
+  // straight line as instant fallback, upgraded to real road geometry + live drive times from OSRM
   function drawStraight(k){
     const r=R[k], wp=r.stops.map(s=>s[1]);
     L.polyline(wp,{color:r.color,weight:4.5,opacity:.8,dashArray:r.dash,lineJoin:'round'}).addTo(groups[k]);
@@ -466,7 +503,27 @@
       const latlngs=route.geometry.coordinates.map(c=>[c[1],c[0]]);
       groups[k].eachLayer(l=>{ if(l instanceof L.Polyline && !(l instanceof L.CircleMarker)) groups[k].removeLayer(l); });
       L.polyline(latlngs,{color:r.color,weight:4.5,opacity:.8,dashArray:r.dash,lineJoin:'round'}).addTo(groups[k]);
+      r._legs=route.legs; r._dur=route.duration; r._dist=route.distance;
+      renderItin();
     }catch(e){ /* keep straight-line fallback */ }
+  }
+
+  const fmt=sec=>{const h=Math.floor(sec/3600),m=Math.round((sec%3600)/60);return h+'h'+(m?(' '+m+'m'):'');};
+  function renderItin(){
+    const el=document.getElementById('itin'); if(!el) return;
+    let html='';
+    Object.entries(R).forEach(([k,r])=>{
+      if(!r._legs) return;
+      html+=`<div class="itin-card"><div class="itin-h"><span class="itin-key" style="background:${r.color}">${k}</span><span class="itin-name">${r.name}</span><span class="itin-tot">${fmt(r._dur)} driving · ${Math.round(r._dist/1000).toLocaleString()} km · ${r.nights} nights</span></div><ol class="legs">`;
+      for(let i=0;i<r._legs.length;i++){
+        const to=r.stops[i+1][0], sleep=r.sleep.includes(to);
+        const dest=sleep?('<b>'+sleepLabel(to)+'</b>'):to;
+        const long=r._legs[i].duration>6*3600?' long':'';
+        html+=`<li><span class="leg-rt">${r.stops[i][0]} → ${dest}</span><span class="leg-hr${long}">${(r._legs[i].duration/3600).toFixed(1)}h</span></li>`;
+      }
+      html+='</ol></div>';
+    });
+    el.innerHTML=html;
   }
   Object.keys(R).forEach(k=>{ drawStraight(k); drawReal(k); });
 
