@@ -222,7 +222,7 @@
     <div id="map"></div>
     <div class="maplead">
       <span class="lg"><span class="swatch" style="background:var(--rt-a)"></span> A · Full Med, coastal (dream)</span>
-      <span class="lg"><span class="swatch" style="background:var(--rt-b);background-image:repeating-linear-gradient(90deg,var(--rt-b),var(--rt-b) 7px,transparent 7px,transparent 12px)"></span> B · Trimmed Med, Turin/Milan</span>
+      <span class="lg"><span class="swatch" style="background:var(--rt-b);background-image:repeating-linear-gradient(90deg,var(--rt-b),var(--rt-b) 7px,transparent 7px,transparent 12px)"></span> B · Monaco Run (coast)</span>
       <span class="lg"><span class="swatch" style="background:var(--rt-e)"></span> E · Swiss Alps (keeps Rovinj)</span>
       <span class="lg"><span class="swatch" style="background:var(--rt-c)"></span> C · Central via Vienna (frugal)</span>
       <span class="lg"><span class="swatch" style="background:var(--rt-d);background-image:repeating-linear-gradient(90deg,var(--rt-d),var(--rt-d) 6px,transparent 6px,transparent 11px)"></span> D · Rotterdam (family-first)</span>
@@ -278,20 +278,20 @@
         <div class="bar" style="background:var(--rt-b)"></div>
         <div class="opt-body">
           <span class="badge rec">Recommended</span>
-          <h3>B · Trimmed Med</h3>
-          <p class="route">Calais → Reims → Lyon/Provence → Avignon → Genova → Verona → Rovinj (2) → Csopak</p>
+          <h3>B · Monaco Run</h3>
+          <p class="route">Calais → Reims → Avignon → Cannes → <b>Monaco</b> → Genova → Verona → Rovinj (2) → Csopak</p>
           <div class="stats">
             <div class="stat"><span class="n">6</span><span class="l">days</span></div>
             <div class="stat"><span class="n">5</span><span class="l">paid nights</span></div>
-            <div class="stat"><span class="n">~£2.2–3.2k</span><span class="l">cost</span></div>
+            <div class="stat"><span class="n">~£2.3–3.3k</span><span class="l">cost</span></div>
           </div>
           <ul class="pl">
-            <li class="p">Keeps the star — Rovinj, 2 nights — plus a Provence taste</li>
-            <li class="p">Two fewer family-room nights → ~£500–800 saved vs A</li>
-            <li class="p">Med magic without the full bite</li>
-            <li class="c">Drops the Riviera multi-stop (Verdon/Cannes/Monaco)</li>
+            <li class="p">🏎️ <b>Monaco</b> — supercars, the F1 street circuit &amp; superyachts (Erik's dream)</li>
+            <li class="p">Still gets the new Rovinj coast (2 nights) you've never done</li>
+            <li class="p">Drive the Riviera, sleep cheaper inland → ~£500–700 under full-A</li>
+            <li class="c">Pricier than C/D — the Monaco-affordably compromise, not the cheapest</li>
           </ul>
-          <div class="bestif"><b>Best if:</b> you want the memorable bits at a sane price — the balance of "kids' sweet age" and "six nights wreck us."</div>
+          <div class="bestif"><b>Best if:</b> Monaco's non-negotiable but full-A's Riviera hotels aren't — drive through Monaco, sleep cheap, bank the saving.</div>
         </div>
       </article>
 
@@ -402,9 +402,9 @@
         <div class="amt">£2.8–4.0k</div>
       </div>
       <div class="crow">
-        <div class="nm">B · Trimmed Med<small>5 nights · £1,260 beds</small></div>
-        <div class="track"><div class="fill" style="width:80%;background:var(--rt-b)"></div></div>
-        <div class="amt">£2.2–3.2k</div>
+        <div class="nm">B · Monaco Run<small>5 nights · £1,330 beds · Monaco day</small></div>
+        <div class="track"><div class="fill" style="width:82%;background:var(--rt-b)"></div></div>
+        <div class="amt">£2.3–3.3k</div>
       </div>
       <div class="crow">
         <div class="nm">E · Via Switzerland<small>4 nights · £1,310 beds</small></div>
@@ -431,10 +431,10 @@
     <div class="verdict">
       <p class="eyebrow">The call — with live numbers</p>
       <h2>B for the Med · C if cash wins</h2>
-      <p>Live pricing confirms your instinct that beds make or break this. The Med routes now cost <b>£2.2–4.0k</b>
-        to drive — <b>B</b> (£1,260 beds, Milan's low season) is the value Med pick and beats coastal <b>A</b> by
-        ~£600–800. The Swiss <b>E</b> lands about the same as B for one fewer night, because Lucerne (~£400) eats the
-        saving — so E only wins if your Basel friends host.</p>
+      <p>Live pricing confirms beds make or break this. The Med routes run <b>£2.2–4.0k</b> — and since you want
+        <b>Monaco</b>, <b>B (the Monaco Run)</b> is the play: drive the Riviera <i>through</i> Monaco (supercars, F1
+        streets, superyachts — Erik's dream) but sleep cheaper inland, so you still get the new Rovinj coast at
+        <b>~£2.3–3.3k</b>, roughly £500–700 under full-A. The Swiss <b>E</b> swaps Monaco for the Alps + a possible free Basel bed.</p>
       <p class="alt"><b>The honest headline:</b> central <b>C is ~£1,300–2,600 cheaper</b> than any Med route (~£1k all-in),
         now Munich-free and clear of the transit jams. With summer already brushing the £10k annual ceiling, C — or <b>D</b>
         if seeing Mum + your brother matters most (the Seewalchen friend-stop could be a free bed) — is the budget-safe call. And every Med route rides on the
@@ -471,14 +471,14 @@
   // each route = ordered, named stops. A is coastal; B diverges inland (Turin/Milan) so it reads distinctly.
   const R={
     A:{color:css('--rt-a'),dash:null,name:'Full Med · coast',nights:6,sleep:['Reims','Avignon','Cannes','Verona','Rovinj'],stops:[['Calais',P.calais],['Reims',P.reims],['Lyon',P.lyon],['Avignon',P.avignon],['Cannes',P.cannes],['Monaco',P.monaco],['Genova',P.genova],['Verona',P.verona],['Rovinj',P.rovinj],['Opatija',P.opatija],['Csopak',P.csopak]]},
-    B:{color:css('--rt-b'),dash:'8 7',name:'Trimmed Med',nights:5,sleep:['Reims','Milano','Verona','Rovinj'],stops:[['Calais',P.calais],['Reims',P.reims],['Lyon',P.lyon],['Torino',P.torino],['Milano',P.milano],['Verona',P.verona],['Rovinj',P.rovinj],['Csopak',P.csopak]]},
+    B:{color:css('--rt-b'),dash:'8 7',name:'Monaco Run',nights:5,sleep:['Reims','Avignon','Verona','Rovinj'],stops:[['Calais',P.calais],['Reims',P.reims],['Avignon',P.avignon],['Cannes',P.cannes],['Monaco',P.monaco],['Genova',P.genova],['Verona',P.verona],['Rovinj',P.rovinj],['Csopak',P.csopak]]},
     E:{color:css('--rt-e'),dash:null,name:'Swiss Alps',nights:4,sleep:['Reims','Luzern','Rovinj'],maybe:['Basel'],stops:[['Calais',P.calais],['Reims',P.reims],['Basel',P.basel],['Luzern',P.luzern],['Milano',P.milano],['Verona',P.verona],['Rovinj',P.rovinj],['Csopak',P.csopak]]},
     C:{color:css('--rt-c'),dash:null,name:'Central · Vienna',nights:2,sleep:['Nürnberg','Wien'],stops:[['Calais',P.calais],['Brussels',P.brussels],['Köln',P.cologne],['Frankfurt',P.frankfurt],['Nürnberg',P.nurnberg],['Linz',P.linz],['Wien',P.wien],['Csopak',P.csopak]]},
     D:{color:css('--rt-d'),dash:'11 9',name:'Rotterdam · via Luxembourg',nights:4,sleep:['Rotterdam','Frankfurt','Wien'],maybe:['Seewalchen'],stops:[['Calais',P.calais],['Rotterdam',P.rotterdam],['Luxembourg',P.luxembourg],['Frankfurt',P.frankfurt],['Nürnberg',P.nurnberg],['Linz',P.linz],['Seewalchen',P.seewalchen],['Wien',P.wien],['Csopak',P.csopak]]}
   };
   const dbl={'Rovinj':1};
   const endpt={'Calais':1,'Csopak':1};
-  const SIGHT={Calais:'Channel crossing',Reims:'Champagne & cathedral',Lyon:'food capital (stop)',Avignon:'Pont du Gard, Papal palace',Cannes:'Riviera beach',Monaco:'harbour & casino (stop)',Genova:'port & focaccia (stop)',Torino:'Alpine gateway (stop)',Milano:'the Duomo (stop)',Verona:'Roman arena, Juliet',Rovinj:'Istria beaches & old town ★',Opatija:'seaside promenade (stop)',Basel:'Rhine old town',Luzern:'Chapel Bridge, lake & Alps',Brussels:'Grand-Place (stop)','Köln':'the cathedral (stop)',Frankfurt:'Main skyline (stop)',Luxembourg:'old town + cheap fuel','Nürnberg':'old town & castle',Linz:'Danube city (stop)',Seewalchen:'Attersee lake swim',Wien:'palaces & the Prater',Csopak:'Lake Balaton — arrive! 🎉'};
+  const SIGHT={Calais:'Channel crossing',Reims:'Champagne & cathedral',Lyon:'food capital (stop)',Avignon:'Pont du Gard, Papal palace',Cannes:'Riviera beach',Monaco:'supercars, F1 streets & superyachts ★',Genova:'port & focaccia (stop)',Torino:'Alpine gateway (stop)',Milano:'the Duomo (stop)',Verona:'Roman arena, Juliet',Rovinj:'Istria beaches & old town ★',Opatija:'seaside promenade (stop)',Basel:'Rhine old town',Luzern:'Chapel Bridge, lake & Alps',Brussels:'Grand-Place (stop)','Köln':'the cathedral (stop)',Frankfurt:'Main skyline (stop)',Luxembourg:'old town + cheap fuel','Nürnberg':'old town & castle',Linz:'Danube city (stop)',Seewalchen:'Attersee lake swim',Wien:'palaces & the Prater',Csopak:'Lake Balaton — arrive! 🎉'};
 
   const groups={};
   Object.entries(R).forEach(([k,r])=>{
@@ -551,7 +551,7 @@
 
   const overlays={
     "🔴 A · Full Med (coast)":routeA,
-    "🟠 B · Trimmed Med (Turin)":routeB,
+    "🟠 B · Monaco Run":routeB,
     "🟣 E · Swiss Alps":routeE,
     "🟢 C · Central (Vienna)":routeC,
     "🔵 D · Rotterdam":routeD
