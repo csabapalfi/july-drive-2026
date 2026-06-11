@@ -143,6 +143,12 @@
   .bedpin{width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid #888;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.3)}
   .leaflet-tooltip.pin.sleep{border-color:var(--sun);font-weight:700}
   .leaflet-tooltip.pin.maybe{border-color:#e8743b;color:#b24a23}
+  .d-variant-ctrl{display:inline-flex;align-items:center;gap:0;border:1.5px solid var(--rt-d);border-radius:8px;overflow:hidden;margin-left:4px}
+  .d-variant-ctrl button{background:#fff;border:none;border-right:1px solid var(--rt-d);padding:4px 11px;font-size:.78rem;font-weight:600;font-family:'Inter',sans-serif;color:var(--rt-d);cursor:pointer;line-height:1.4;transition:background .15s,color .15s}
+  .d-variant-ctrl button:last-child{border-right:none}
+  .d-variant-ctrl button.active{background:var(--rt-d);color:#fff}
+  .d-variant-ctrl button:hover:not(.active){background:#e8f0f8}
+  .d-variant-note{color:var(--ink-soft);font-size:.82rem;margin-top:8px;width:100%}
 
   /* Black Saturday explainer */
   .blacksat{margin-top:24px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);
@@ -293,6 +299,14 @@
       <span class="lg"><span class="swatch" style="background:var(--rt-a)"></span> A · Monaco Run (Riviera + Rovinj)</span>
       <span class="lg"><span class="swatch" style="background:var(--rt-b);background-image:repeating-linear-gradient(90deg,var(--rt-b),var(--rt-b) 7px,transparent 7px,transparent 12px)"></span> B · Venice / Lakes</span>
       <span class="lg"><span class="swatch" style="background:var(--rt-c)"></span> C · Lean &amp; fast (the saver)</span>
+      <span class="lg" style="margin-left:8px">D departure variant:
+        <span class="d-variant-ctrl" id="dVariantCtrl">
+          <button data-v="D1">D1</button>
+          <button data-v="D2" class="active">D2</button>
+          <button data-v="D3">D3</button>
+        </span>
+      </span>
+      <span class="d-variant-note">D variant nights differ — use the D1/D2/D3 switch (D2 = likely).</span>
     </div>
   </div>
 </section>
@@ -846,6 +860,103 @@
   document.head.appendChild(style);
 
   map.fitBounds(L.latLngBounds([P.calais,P.avignon,P.monaco,P.rovinj,P.kecskemet,P.basel]).pad(0.1));
+
+  // D variant bed-pin data (three departure variants; route line stays as-is)
+  const D_VARIANTS = {
+    D1: {
+      beds: [
+        {name:'Châlons', ll:P.chalons, tip:'Châlons — Tue 14 night', dbl:false},
+        {name:'Ulm',     ll:P.ulm,     tip:'Ulm — Wed 15 night',     dbl:false},
+        {name:'Predazzo',ll:P.predazzo,tip:'Predazzo — Thu 16 + Fri 17 (coaster day)', dbl:true},
+        {name:'Ljubljana',ll:P.ljubljana,tip:'Ljubljana — Sat 18 night', dbl:false}
+      ],
+      base: 'arrive Kecskemét Sun 19'
+    },
+    D2: {
+      beds: [
+        {name:'Reims',   ll:P.reims,   tip:'Reims — Thu 16 night',   dbl:false},
+        {name:'Ulm',     ll:P.ulm,     tip:'Ulm — Fri 17 night',     dbl:false},
+        {name:'Predazzo',ll:P.predazzo,tip:'Predazzo — Sat 18 + Sun 19 (coaster day)', dbl:true},
+        {name:'Ljubljana',ll:P.ljubljana,tip:'Ljubljana — Mon 20 night', dbl:false}
+      ],
+      base: 'arrive Kecskemét Tue 21'
+    },
+    D3: {
+      beds: [
+        {name:'Châlons', ll:P.chalons, tip:'Châlons — Fri 17 night', dbl:false},
+        {name:'Ulm',     ll:P.ulm,     tip:'Ulm — Sat 18 night',     dbl:false},
+        {name:'Predazzo',ll:P.predazzo,tip:'Predazzo — Sun 19 night', dbl:false},
+        {name:'Ljubljana',ll:P.ljubljana,tip:'Ljubljana — Mon 20 night', dbl:false}
+      ],
+      base: 'arrive Kecskemét Tue 21'
+    }
+  };
+
+  // IDs of D bed markers so we can remove them selectively
+  let _dBedLayers = [];
+
+  function renderDVariantPins(variant) {
+    // Remove previous D bed markers only
+    _dBedLayers.forEach(l => routeD.removeLayer(l));
+    _dBedLayers = [];
+
+    const col = R.D.color;
+    const vdata = D_VARIANTS[variant];
+
+    vdata.beds.forEach(b => {
+      const marker = L.marker(b.ll, {
+        icon: L.divIcon({className:'', html:`<div class="bedpin" style="border-color:${col}">🛏</div>`, iconSize:[24,24], iconAnchor:[12,12]}),
+        zIndexOffset: 600
+      });
+      marker.bindTooltip('🛏 ' + b.tip, {permanent:true, direction:'top', className:'pin sleep', offset:[0,-12]});
+      routeD.addLayer(marker);
+      _dBedLayers.push(marker);
+    });
+
+    // Base arrival label at Kecskemét (small circle, not a bed pin)
+    const baseMarker = L.circleMarker(P.kecskemet, {radius:7, color:'#fff', weight:2, fillColor:R.D.color, fillOpacity:1})
+      .bindTooltip(vdata.base, {permanent:true, direction:'top', className:'pin', offset:[0,-6]});
+    routeD.addLayer(baseMarker);
+    _dBedLayers.push(baseMarker);
+  }
+
+  // Initial render with D2 (default)
+  // First remove the static D bed markers drawn in the generic loop above
+  // (they were added as part of the groups[D] generic rendering)
+  // Re-initialise D group markers: remove all existing D markers, re-add non-bed ones, then add variant beds
+  (function initDVariant() {
+    // The generic groups loop already added: route polyline, bed markers, and waypoint circles for D.
+    // We need to strip out only the bed (divIcon) markers; waypoint circles and the polyline stay.
+    const toRemove = [];
+    routeD.eachLayer(l => {
+      if (l instanceof L.Marker) toRemove.push(l); // all L.Marker are bed pins (divIcon)
+    });
+    toRemove.forEach(l => routeD.removeLayer(l));
+    renderDVariantPins('D2');
+  })();
+
+  // Segmented control wiring
+  const dCtrl = document.getElementById('dVariantCtrl');
+  if (dCtrl) {
+    dCtrl.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-v]');
+      if (!btn) return;
+      dCtrl.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const v = btn.dataset.v;
+      renderDVariantPins(v);
+      // If route D overlay was toggled off, re-add it so the new pins are visible
+      if (!map.hasLayer(routeD)) map.addLayer(routeD);
+    });
+  }
+
+  // Re-render D variant pins when the D overlay is toggled back on
+  map.on('overlayadd', e => {
+    if (e.layer === routeD) {
+      const activeBtn = dCtrl && dCtrl.querySelector('button.active');
+      renderDVariantPins(activeBtn ? activeBtn.dataset.v : 'D2');
+    }
+  });
 </script>
 </body>
 </html>
