@@ -661,9 +661,13 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
   const map = L.map('map',{scrollWheelZoom:false}).setView([47.6, 9.5], 5);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
+  const streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
     attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
   }).addTo(map);
+  const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
+    attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics', maxZoom:19
+  });
+  const baseLayers = {'Map':streets,'Satellite':satellite};
 
   const P = {
     calais:[50.95,1.86], chalons:[48.96,4.36], avignon:[43.95,4.81], pontdugard:[43.95,4.54],
@@ -763,7 +767,7 @@
     "🟠 B · Venice / Lakes":routeB,
     "🟢 C · Lean & fast":routeC
   };
-  L.control.layers(null,overlays,{collapsed:false,position:'topright'}).addTo(map);
+  L.control.layers(baseLayers,overlays,{collapsed:false,position:'topright'}).addTo(map);
 
   const style=document.createElement('style');
   style.textContent='.leaflet-tooltip.pin{background:#fff;border:1px solid #e7ddcb;border-radius:7px;font-weight:600;font-size:11px;color:#21201c;box-shadow:0 2px 8px rgba(0,0,0,.12);padding:2px 7px} .leaflet-tooltip.pin::before{display:none}';
