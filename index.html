@@ -149,6 +149,8 @@
   .d-variant-ctrl button.active{background:var(--rt-d);color:#fff}
   .d-variant-ctrl button:hover:not(.active){background:#e8f0f8}
   .d-variant-note{color:var(--ink-soft);font-size:.82rem;margin-top:8px;width:100%}
+  .d-variant-map-ctrl{background:#fff;border-radius:10px;padding:7px 10px;box-shadow:0 1px 5px rgba(0,0,0,.35);display:flex;align-items:center;gap:7px;font-family:'Inter',sans-serif}
+  .d-variant-map-ctrl .dv-label{font-size:.74rem;font-weight:700;color:var(--rt-d);text-transform:uppercase;letter-spacing:.04em}
 
   /* Black Saturday explainer */
   .blacksat{margin-top:24px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);
@@ -299,14 +301,7 @@
       <span class="lg"><span class="swatch" style="background:var(--rt-a)"></span> A · Monaco Run (Riviera + Rovinj)</span>
       <span class="lg"><span class="swatch" style="background:var(--rt-b);background-image:repeating-linear-gradient(90deg,var(--rt-b),var(--rt-b) 7px,transparent 7px,transparent 12px)"></span> B · Venice / Lakes</span>
       <span class="lg"><span class="swatch" style="background:var(--rt-c)"></span> C · Lean &amp; fast (the saver)</span>
-      <span class="lg" style="margin-left:8px">D departure variant:
-        <span class="d-variant-ctrl" id="dVariantCtrl">
-          <button data-v="D1">D1</button>
-          <button data-v="D2" class="active">D2</button>
-          <button data-v="D3">D3</button>
-        </span>
-      </span>
-      <span class="d-variant-note">D variant nights differ — use the D1/D2/D3 switch (D2 = likely).</span>
+      <span class="d-variant-note">D variant nights differ — use the D1/D2/D3 switch on the map (D2 = likely).</span>
     </div>
   </div>
 </section>
@@ -854,6 +849,20 @@
     "🟢 C · Lean & fast":routeC
   };
   L.control.layers(baseLayers,overlays,{collapsed:false,position:'topright'}).addTo(map);
+
+  // D-variant night switcher — in-map control, top-left
+  const DVarControl = L.Control.extend({
+    options:{position:'topleft'},
+    onAdd(){
+      const div = L.DomUtil.create('div','d-variant-map-ctrl');
+      div.innerHTML = '<span class="dv-label">D nights</span><span class="d-variant-ctrl" id="dVariantCtrl">'+
+        '<button data-v="D1">D1</button><button data-v="D2" class="active">D2</button><button data-v="D3">D3</button></span>';
+      L.DomEvent.disableClickPropagation(div);
+      L.DomEvent.disableScrollPropagation(div);
+      return div;
+    }
+  });
+  map.addControl(new DVarControl());
 
   const style=document.createElement('style');
   style.textContent='.leaflet-tooltip.pin{background:#fff;border:1px solid #e7ddcb;border-radius:7px;font-weight:600;font-size:11px;color:#21201c;box-shadow:0 2px 8px rgba(0,0,0,.12);padding:2px 7px} .leaflet-tooltip.pin::before{display:none}';
