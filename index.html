@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Road to the base — July 2026 Drive Options</title>
+<title>Road to the base — July 2026 Dolomites drive (Plan A vs B)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
     --sea:#2d7d9a; --sea-deep:#1c5870; --sun:#e8743b; --sun-soft:#f4a259;
     --olive:#7a8450; --sand:#e9ddc7; --rose:#c45d5d;
     --rt-a:#c0392b; --rt-b:#e8743b; --rt-c:#2e8b57; --rt-d:#3a6ea5; --rt-e:#7d5ba6;
+    --plan-a:#c0392b; --plan-b:#3a6ea5;
     --line:#e7ddcb; --shadow:0 1px 2px rgba(33,32,28,.06),0 8px 28px -12px rgba(33,32,28,.18);
   }
   *{box-sizing:border-box}
@@ -26,14 +27,14 @@
 
   /* Hero */
   .hero{position:relative;overflow:hidden;color:#fff;
-    background:linear-gradient(135deg,#1c5870 0%,#2d7d9a 38%,#e8743b 100%)}
+    background:linear-gradient(135deg,#1c5870 0%,#2d7d9a 38%,#7a8450 100%)}
   .hero::after{content:"";position:absolute;inset:0;opacity:.13;
     background-image:radial-gradient(circle at 20% 30%,#fff 1px,transparent 1.4px),radial-gradient(circle at 70% 60%,#fff 1px,transparent 1.4px);
     background-size:42px 42px,58px 58px}
   .hero .wrap{position:relative;z-index:1;padding:46px 22px 40px}
   .kicker{font-family:'Fraunces';font-style:italic;font-weight:500;font-size:1.05rem;opacity:.92;letter-spacing:.2px}
-  .hero h1{font-size:clamp(2.2rem,5.4vw,3.6rem);font-weight:800;margin:.18em 0 .35em;max-width:14ch}
-  .hero p.lede{font-size:1.08rem;max-width:62ch;opacity:.95;margin:0 0 22px}
+  .hero h1{font-size:clamp(2.2rem,5.4vw,3.6rem);font-weight:800;margin:.18em 0 .35em;max-width:16ch}
+  .hero p.lede{font-size:1.08rem;max-width:64ch;opacity:.95;margin:0 0 22px}
   .chips{display:flex;flex-wrap:wrap;gap:9px}
   .chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
     backdrop-filter:blur(4px);padding:7px 13px;border-radius:999px;font-size:.82rem;font-weight:500}
@@ -47,13 +48,13 @@
   .db-flag{font-size:2.1rem;line-height:1;flex:0 0 auto}
   .db-eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:#bfe6cf;margin:0 0 4px}
   .db-h{color:#fff;font-size:clamp(1.3rem,2.6vw,1.8rem);margin:0 0 8px}
-  .db-p{margin:0;opacity:.96;max-width:72ch;font-size:.92rem}
+  .db-p{margin:0;opacity:.96;max-width:74ch;font-size:.92rem}
   .db-p b{font-weight:700}
 
   section{padding:42px 0}
   .eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:var(--sun);margin:0 0 6px}
   .sec-head h2{font-size:clamp(1.5rem,3vw,2.1rem)}
-  .sec-head p{color:var(--ink-soft);max-width:64ch;margin:.5em 0 0}
+  .sec-head p{color:var(--ink-soft);max-width:66ch;margin:.5em 0 0}
 
   /* Context callouts */
   .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:26px}
@@ -73,84 +74,50 @@
   .swatch{width:26px;height:5px;border-radius:3px;display:inline-block}
   .leaflet-container{font-family:'Inter',sans-serif}
 
-  /* Option cards */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;margin-top:28px}
-  .opt{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
-    box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
-  .opt .bar{height:7px}
-  .opt-body{padding:20px 20px 22px;display:flex;flex-direction:column;height:100%}
-  .badge{position:absolute;top:16px;right:16px;font-size:.68rem;font-weight:700;text-transform:uppercase;
-    letter-spacing:.08em;padding:5px 10px;border-radius:999px}
-  .badge.rec{background:#e8f3ec;color:#226c45}
-  .badge.dream{background:#fae7df;color:#b24a23}
-  .badge.frugal{background:#e7f0f5;color:#27566e}
-  .badge.family{background:#fae6ea;color:#a23b56}
-  .badge.alpine{background:#ece6f3;color:#5b4485}
-  .badge.skip{background:#efece6;color:#7a756b}
-  .opt h3{font-size:1.32rem;padding-right:90px}
-  .opt .route{font-size:.82rem;color:var(--ink-soft);margin:8px 0 16px;font-weight:500}
-  .stats{display:flex;gap:8px;margin-bottom:15px;flex-wrap:wrap}
-  .stat{flex:1;min-width:72px;background:var(--paper);border-radius:11px;padding:9px 10px;text-align:center}
-  .stat .n{font-family:'Fraunces';font-weight:700;font-size:1.18rem;display:block;line-height:1.1}
-  .stat .l{font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-soft)}
-  .pl{list-style:none;padding:0;margin:0 0 8px;font-size:.85rem}
-  .pl li{padding:3px 0 3px 22px;position:relative;color:var(--ink-soft)}
-  .pl li.p::before{content:"✓";position:absolute;left:0;color:var(--rt-c);font-weight:700}
-  .pl li.c::before{content:"–";position:absolute;left:0;color:var(--rose);font-weight:700}
-  .bestif{margin-top:auto;font-size:.82rem;background:var(--paper);border-radius:11px;padding:11px 13px}
-  .bestif b{font-family:'Inter'}
-
-  /* Cost comparison */
+  /* Comparison table */
   .costs{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
-  .crow{display:grid;grid-template-columns:140px 1fr 130px;align-items:center;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line)}
-  .crow:last-child{border-bottom:0}
-  .crow .nm{font-weight:600;font-size:.9rem}
-  .crow .nm small{display:block;color:var(--ink-soft);font-weight:400;font-size:.74rem}
-  .track{background:var(--paper);border-radius:8px;height:26px;position:relative;overflow:hidden}
-  .fill{height:100%;border-radius:8px;opacity:.85}
-  .amt{text-align:right;font-family:'Fraunces';font-weight:700;font-size:.98rem}
-  .cnote{font-size:.78rem;color:var(--ink-soft);margin-top:14px}
-  .acc{width:100%;border-collapse:collapse;font-size:.83rem;margin:8px 0 20px}
-  .acc th{text-align:left;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);border-bottom:2px solid var(--line);padding:7px 9px}
-  .acc td{padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
-  .acc tr.hi td{background:#fdf3ee;font-weight:600}
-  .acc tr.chosen td{background:#e8f3ec;box-shadow:inset 3px 0 0 var(--rt-c)}
-  .chosen-tag{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
-    background:#226c45;color:#fff;padding:2px 8px;border-radius:999px;margin-left:7px;vertical-align:middle}
-  .acc .pw{font-family:'Fraunces';font-weight:700;color:var(--ink)}
-  .live{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:#e8f3ec;color:#226c45;padding:3px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
+  .cnote{font-size:.8rem;color:var(--ink-soft);margin-top:14px}
+  .acc{width:100%;border-collapse:collapse;font-size:.86rem;margin:8px 0 6px}
+  .acc th{text-align:left;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);border-bottom:2px solid var(--line);padding:9px 11px}
+  .acc td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}
+  .acc td:first-child{font-weight:600;color:var(--ink)}
+  .acc th.pa,.acc td.pa{border-left:3px solid var(--plan-a)}
+  .acc th.pb,.acc td.pb{border-left:3px solid var(--plan-b)}
+  .acc .h-a{color:var(--plan-a)}
+  .acc .h-b{color:var(--plan-b)}
+  .booked-tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    background:#e8f3ec;color:#226c45;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle}
 
-  /* Journey timeline (drive · see · sleep) */
-  .itin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:16px;margin-top:24px}
-  .tl-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 14px;box-shadow:var(--shadow)}
-  .tl-h{display:flex;align-items:center;gap:9px}
-  .tl-key{font-family:'Fraunces';font-weight:800;color:#fff;width:26px;height:26px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem}
-  .tl-name{font-weight:700;font-size:.94rem}
-  .tl-tot{font-size:.72rem;color:var(--ink-soft);margin:3px 0 10px 35px}
+  /* Journey timelines */
+  .itin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:24px}
+  .tl-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+  .tl-card.pa{border-top:5px solid var(--plan-a)}
+  .tl-card.pb{border-top:5px solid var(--plan-b)}
+  .tl-h{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .tl-key{font-family:'Fraunces';font-weight:800;color:#fff;width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:1rem}
+  .tl-name{font-weight:700;font-size:1rem}
+  .tl-tot{font-size:.76rem;color:var(--ink-soft);margin:6px 0 12px 0}
   .tl{list-style:none;margin:0;padding:0}
-  .tl .drive{font-size:.72rem;color:var(--ink-soft);font-style:italic;padding:2px 0 2px 24px;position:relative}
+  .tl .drive{font-size:.74rem;color:var(--ink-soft);font-style:italic;padding:3px 0 3px 24px;position:relative}
   .tl .drive::before{content:'';position:absolute;left:10px;top:-3px;bottom:-3px;border-left:2px dotted var(--sand)}
   .tl .drive.long{color:var(--sun);font-weight:700;font-style:normal}
-  .tl .stop{position:relative;padding:4px 0 4px 24px}
-  .tl .stop::before{content:'';position:absolute;left:5.5px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--ink-soft);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--line)}
+  .tl .stop{position:relative;padding:5px 0 5px 24px}
+  .tl .stop::before{content:'';position:absolute;left:5.5px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--ink-soft);box-shadow:0 0 0 2px #fff,0 0 0 3px var(--line)}
   .tl .stop.sleep::before{background:var(--sun);width:11px;height:11px;left:4.5px}
-  .tl .stop.maybe::before{background:#fff;box-shadow:0 0 0 2px #fff,0 0 0 3px var(--sun)}
   .tl .stop.tip::before{background:var(--sea-deep);width:11px;height:11px;left:4.5px}
-  .tl .nm{font-weight:600;font-size:.85rem}
+  .tl .nm{font-weight:600;font-size:.88rem}
   .tl .stop.pass .nm{font-weight:500;color:var(--ink-soft)}
-  .tl .stop.maybe .nm{color:#b24a23}
-  .tl .stop small{display:block;font-size:.72rem;color:var(--ink-soft);line-height:1.3}
+  .tl .stop small{display:block;font-size:.74rem;color:var(--ink-soft);line-height:1.35}
+  .tl .day{display:inline-block;font-size:.64rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--paper);color:var(--ink-soft);padding:1px 7px;border-radius:999px;margin-right:6px;vertical-align:middle}
   .bedpin{width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid #888;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-  .leaflet-tooltip.pin.sleep{border-color:var(--sun);font-weight:700}
-  .leaflet-tooltip.pin.maybe{border-color:#e8743b;color:#b24a23}
-  .d-variant-ctrl{display:inline-flex;align-items:center;gap:0;border:1.5px solid var(--rt-d);border-radius:8px;overflow:hidden;margin-left:4px}
-  .d-variant-ctrl button{background:#fff;border:none;border-right:1px solid var(--rt-d);padding:4px 11px;font-size:.78rem;font-weight:600;font-family:'Inter',sans-serif;color:var(--rt-d);cursor:pointer;line-height:1.4;transition:background .15s,color .15s}
-  .d-variant-ctrl button:last-child{border-right:none}
-  .d-variant-ctrl button.active{background:var(--rt-d);color:#fff}
-  .d-variant-ctrl button:hover:not(.active){background:#e8f0f8}
-  .d-variant-note{color:var(--ink-soft);font-size:.82rem;margin-top:8px;width:100%}
   .d-variant-map-ctrl{background:#fff;border-radius:10px;padding:7px 10px;box-shadow:0 1px 5px rgba(0,0,0,.35);display:flex;align-items:center;gap:7px;font-family:'Inter',sans-serif}
-  .d-variant-map-ctrl .dv-label{font-size:.74rem;font-weight:700;color:var(--rt-d);text-transform:uppercase;letter-spacing:.04em}
+  .d-variant-map-ctrl .dv-label{font-size:.74rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em}
+  .d-variant-ctrl{display:inline-flex;align-items:center;gap:0;border:1.5px solid var(--ink-soft);border-radius:8px;overflow:hidden}
+  .d-variant-ctrl button{background:#fff;border:none;border-right:1px solid var(--line);padding:4px 12px;font-size:.8rem;font-weight:700;font-family:'Inter',sans-serif;color:var(--ink-soft);cursor:pointer;line-height:1.4;transition:background .15s,color .15s}
+  .d-variant-ctrl button:last-child{border-right:none}
+  .d-variant-ctrl button[data-v="A"].active{background:var(--plan-a);color:#fff}
+  .d-variant-ctrl button[data-v="B"].active{background:var(--plan-b);color:#fff}
+  .d-variant-ctrl button:hover:not(.active){background:#f2ede4}
 
   /* Black Saturday explainer */
   .blacksat{margin-top:24px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);
@@ -160,37 +127,23 @@
   .blacksat h3{font-size:1.18rem}
   .bs-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:14px}
   .bs-col h4{font-family:'Inter';font-size:.9rem;font-weight:700;margin:0 0 4px}
+  .bs-col.a h4{color:var(--plan-a)}
+  .bs-col.b h4{color:var(--plan-b)}
   .bs-col p{margin:0;font-size:.85rem;color:var(--ink-soft)}
   .bs-why{margin:18px 0 0;font-size:.88rem;background:var(--paper);border-radius:11px;padding:13px 15px;
-    border-left:3px solid var(--rt-d)}
+    border-left:3px solid var(--sea)}
 
   /* Verdict */
   .verdict{margin-top:30px;border-radius:20px;padding:30px;color:#fff;
     background:linear-gradient(120deg,#2e8b57,#1c5870);box-shadow:var(--shadow)}
   .verdict .eyebrow{color:#bfe6cf}
   .verdict h2{color:#fff;font-size:1.7rem;margin-bottom:10px}
-  .verdict p{opacity:.95;max-width:70ch;margin:0 0 10px}
+  .verdict p{opacity:.95;max-width:72ch;margin:0 0 10px}
   .verdict .alt{font-size:.9rem;opacity:.9}
 
-  /* How we'll run it + booking */
-  .runit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:26px}
-  .ri-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
-  .ri-h{font-size:1.12rem}
-  .ri-line{font-size:.9rem;margin:12px 0 4px}
-  .ri-note{font-size:.82rem;color:var(--ink-soft);margin:8px 0 0}
-  .ri-lever{list-style:none;padding:0;margin:14px 0 0;font-size:.85rem}
-  .ri-lever li{padding:7px 0;border-bottom:1px dashed var(--line);color:var(--ink-soft)}
-  .ri-lever li:last-child{border-bottom:0}
-  .lv-tag{display:inline-block;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
-    padding:2px 9px;border-radius:999px;margin-right:8px;color:#fff}
-  .lv-tag.full{background:var(--rt-d)}
-  .lv-tag.lean{background:var(--olive)}
-  .lv-tag.floor{background:#7a756b}
-  .ri-days{list-style:none;padding:0;margin:12px 0 0;font-size:.86rem}
-  .ri-days li{padding:6px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px}
-  .ri-days li:last-child{border-bottom:0}
-  .ri-eta{color:var(--sea-deep);font-weight:600;font-size:.78rem;white-space:nowrap}
+  /* Booking */
   .booking{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+  .ri-h{font-size:1.12rem}
   .bk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:14px}
   .bk-col h4{font-family:'Inter';font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
     margin:0 0 8px;padding-bottom:5px;border-bottom:2px solid var(--line)}
@@ -201,26 +154,27 @@
   .bk-list{list-style:none;padding:0;margin:0;font-size:.84rem}
   .bk-list li{padding:5px 0 5px 18px;position:relative;color:var(--ink-soft)}
   .bk-list li::before{content:"›";position:absolute;left:0;color:var(--ink-soft);font-weight:700}
+  .bk-list li b{color:var(--ink)}
 
   footer{padding:30px 0 50px;color:var(--ink-soft);font-size:.8rem;text-align:center}
-  @media(max-width:560px){.crow{grid-template-columns:1fr;gap:6px}.crow .track{order:3}.amt{text-align:left}}
 </style>
 </head>
 <body>
 
 <header class="hero">
   <div class="wrap">
-    <p class="kicker">Summer 2026 · the long drive south</p>
-    <h1>Road to the base</h1>
-    <p class="lede">Three ways to drive the family from Folkestone to the Kecskemét base — then settle before
-      Csopak on 24 Jul. The car has to be in Hungary for the 7-week stay anyway (hiring there would cost
-      ~£2–3k), so this is purely an <b>outbound-route choice</b>, not drive-vs-fly. Same start, same finish —
-      pick the trade-off between adventure, calm and cost.</p>
+    <p class="kicker">Summer 2026 · the long drive to the base</p>
+    <h1>Road to the base — the Dolomites line</h1>
+    <p class="lede">One Alpine route from Folkestone to the Kecskemét base, then settle before Csopak on
+      24 Jul. Two timing variants — <b>Plan A</b> and <b>Plan B</b> — differ <b>only</b> by departure day,
+      which decides whether the Alpine pass is crossed on Saturday or Sunday. Same route, same overnight
+      stops, same finish.</p>
     <div class="chips">
-      <span class="chip">🚗 THE PLAN: <b>Thu 16 Jul PM</b> → sleep Calais → Fri Stuttgart → Sat-AM Predazzo ×2 · Fallback: Fri 17 (D3) · or Tue 14 (D1)</span>
-      <span class="chip">🏡 Kecskemét base → settle</span>
+      <span class="chip">🚗 <b>Plan A:</b> Thu 16 eve → Sat crossing</span>
+      <span class="chip">🚗 <b>Plan B:</b> Fri 17 eve → Sun crossing <b>(booked)</b></span>
+      <span class="chip">🚆 Le Shuttle <b>out Fri 17 18:36</b> · return Tue 1 Sep</span>
+      <span class="chip">🏔 No Munich — cross via the Fernpass</span>
       <span class="chip">🌊 Csopak <b>24 Jul</b> (booked)</span>
-      <span class="chip">↩️ Return <b>1 Sep</b> — separate fast 2-day direct</span>
       <span class="chip">👧🧒 Ella 9 (animals) · Erik 11 (ADHD/ASD)</span>
     </div>
   </div>
@@ -231,9 +185,12 @@
     <div class="decision-banner">
       <div class="db-flag">✅</div>
       <div class="db-body">
-        <p class="db-eyebrow">Decision — 12 Jun 2026</p>
-        <h2 class="db-h">THE PLAN: D2-Calais — Thu 16 tour → cross → sleep Calais; Fri Stuttgart; Sat-AM pass → Predazzo ×2; optional Garda night; base Tue 21.</h2>
-        <p class="db-p">Fallbacks: <b>Relaxed Friday (D3)</b> if the 06:30 Sat start is unrealistic · <b>D1</b> if the tour drops. <b>Monaco</b> kept as Eva's-dream reference. Basel friends away → B survives only as the Venice-nostalgia route.</p>
+        <p class="db-eyebrow">Decision — locked 10 Jul 2026</p>
+        <h2 class="db-h">The Dolomites line: Calais → Stuttgart → Fernpass/Brenner → Predazzo → Ljubljana → base.</h2>
+        <p class="db-p">Le Shuttle <b>17034554</b> is booked FlexiPlus, <b>out Fri 17 Jul 18:36</b> / return
+          <b>Tue 1 Sep</b> — that's <b>Plan B</b>. FlexiPlus allows a <b>free switch to Thu 16</b> for
+          <b>Plan A</b> (a fuller Dolomites day). Both arrive base <b>Tue 21</b>, settle Wed 22–Thu 23,
+          Csopak Fri 24. The earlier multi-route exploration (Monaco / Basel / Venice / lean) is archived.</p>
       </div>
     </div>
   </div>
@@ -243,40 +200,35 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Where things stand</p>
-      <h2>The decision, in five facts</h2>
-      <p>The car's driving to Hungary regardless, so flying is off the table — the only live question is
-        <i>which way out</i>. Fatigue, not "avoid Germany", is the real safety lever.</p>
+      <h2>The plan, in four facts</h2>
+      <p>The car has to be at the base for the 7-week stay (hiring there ≈ £2–3k), so driving is settled and
+        flying is off the table. Fatigue and congestion-density — not "avoid Germany" — are the real safety lever.</p>
     </div>
     <div class="notes">
       <div class="note lock">
-        <div class="ic">🚗</div>
-        <h4>It's a route choice, not drive-vs-fly</h4>
-        <p>The Kodiaq has to be at the base for the 7-week stay (hiring there ≈ <b>£2–3k</b>). So we're
-          driving either way — this page only compares <b>how</b> we get out there.</p>
+        <div class="ic">🏔</div>
+        <h4>No Munich — cross via the Fernpass</h4>
+        <p>The Alps are crossed on the <b>Fernpass</b> (west of Munich), not the A8. Skips the accident-corridor
+          hub; every leg stays ≤ ~8h.</p>
       </div>
       <div class="note lock">
         <div class="ic">📍</div>
         <h4>Fixed anchors</h4>
-        <p>Depart <b>Tue 14 Jul</b> after Erik's CAMHS (~11:00) · arrive Kecskemét base, settle ·
-          <b>Csopak 24 Jul</b> booked. Return <b>1 Sep</b> is a separate fast direct 2-day drive (not detailed here).</p>
+        <p>Sleep <b>Calais</b> night 1 + <b>Stuttgart</b> night 2 (both plans) → Predazzo → Ljubljana →
+          <b>base Tue 21</b>, settle Wed 22–Thu 23. <b>Csopak 24 Jul</b> booked. Return <b>1 Sep</b> is a
+          separate fast direct 2-day drive.</p>
       </div>
-      <div class="note warn">
-        <div class="ic">😴</div>
-        <h4>No brutal car days</h4>
-        <p>The controllable risk is <b>fatigue</b>, not a country. Every plan keeps legs short — no single
-          day over ~6h (one exception in A) — and Erik (ADHD/ASD) gets <b>no brutal car days</b>.</p>
+      <div class="note heart">
+        <div class="ic">🛷</div>
+        <h4>What the kids get</h4>
+        <p><b>Alpine Coaster Gardonè</b> at Predazzo — Erik's confirmed favourite (cable car up + repeat runs) —
+          plus <b>Lago di Carezza</b>, Ella's turquoise roadside lake. Both walk-up.</p>
       </div>
       <div class="note heart">
         <div class="ic">🛟</div>
         <h4>A calm landing for Eva</h4>
-        <p>Eva wants it to feel less crazy — <b>not on the road continuously without a proper base landing.</b>
-          Plan B builds in a Garda lake "landing" mid-trip; all plans settle at the base before Csopak.</p>
-      </div>
-      <div class="note heart">
-        <div class="ic">🦈</div>
-        <h4>What the kids love</h4>
-        <p>Erik (fast &amp; modern) → Monaco supercars &amp; F1 streets. Ella (animals) → Monaco sharks,
-          SEA Life aquarium, dolphins off Istria. All of you → swimmable water: Rovinj, Garda, Balaton.</p>
+        <p>Two short overnight hops out, one mountain stop, then drop to the base with <b>two settle days</b>
+          before Csopak — not endless road days.</p>
       </div>
     </div>
   </div>
@@ -285,187 +237,104 @@
 <section id="map-sec" style="padding-top:6px">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">The three routes</p>
-      <h2>One start, one finish, three ways through Europe</h2>
-      <p>Toggle routes top-right — isolate one to read just its stops (every stop is marked). All begin at
-        Calais and end at the <b>Kecskemét base</b> (settle, then Csopak 24 Jul). <b>🛏 = where you sleep.</b>
-        A hugs the Riviera, B threads Switzerland to the Italian lakes + Venice, C blasts the central corridor
-        (no Munich).</p>
+      <p class="eyebrow">The route</p>
+      <h2>One line through six countries</h2>
+      <p>FR · DE · AT · IT · SI · HU. Folkestone → Calais → Stuttgart/Ulm → <b>Fernpass/Brenner</b> →
+        <b>Predazzo (Dolomites)</b> → Ljubljana → <b>Kecskemét base</b> → Csopak. Use the <b>Plan A / Plan B</b>
+        switch (top-left of the map) to see where you sleep in each variant. <b>🛏 = overnight.</b></p>
     </div>
     <div id="map"></div>
     <div class="maplead">
-      <span class="lg"><span class="swatch" style="background:var(--rt-d);background-image:repeating-linear-gradient(90deg,var(--rt-d),var(--rt-d) 3px,transparent 3px,transparent 9px)"></span> D · Dolomites (lead)</span>
-      <span class="lg"><span class="swatch" style="background:var(--rt-a)"></span> A · Monaco Run (Riviera + Rovinj)</span>
-      <span class="lg"><span class="swatch" style="background:var(--rt-b);background-image:repeating-linear-gradient(90deg,var(--rt-b),var(--rt-b) 7px,transparent 7px,transparent 12px)"></span> B · Venice / Lakes</span>
-      <span class="lg"><span class="swatch" style="background:var(--rt-c)"></span> C · Lean &amp; fast (the saver)</span>
-      <span class="d-variant-note">D variant nights differ — use the D1/D2/D3 switch on the map (D2 = likely).</span>
+      <span class="lg"><span class="swatch" style="background:var(--plan-a)"></span> Plan A — Thu eve depart, Saturday crossing, Predazzo ×2</span>
+      <span class="lg"><span class="swatch" style="background:var(--plan-b)"></span> Plan B — Fri eve depart (booked), Sunday crossing, Predazzo ×1</span>
     </div>
   </div>
 </section>
 
-<section id="itin-sec" style="padding-top:6px">
+<section id="fork" style="padding-top:6px">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The choice</p>
+      <h2>Plan A vs Plan B — same route, one difference</h2>
+      <p>Both sleep Calais then Stuttgart. The only real difference is departure day, which sets whether you
+        cross the Fernpass/Brenner on a <b>Saturday</b> (needs a 06:30 dash) or a calmer <b>Sunday morning</b>.</p>
+    </div>
+    <div class="costs">
+      <table class="acc">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="pa h-a">Plan A — Thu eve</th>
+            <th class="pb h-b">Plan B — Fri eve <span class="booked-tag">booked</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Depart</td><td class="pa">Thu 16 Jul ~19:15 <small>(free ticket switch Fri→Thu)</small></td><td class="pb">Fri 17 Jul 18:36 <small>(as booked)</small></td></tr>
+          <tr><td>Alpine crossing</td><td class="pa"><b>Sat 18</b> — needs a 06:30 start to beat weekend jams</td><td class="pb"><b>Sun 19 AM</b> — lorry-free, calm, no dawn dash</td></tr>
+          <tr><td>Predazzo nights</td><td class="pa"><b>2</b> — full stationary Dolomites day Sun 19</td><td class="pb"><b>1</b> — Dolomites = Sun afternoon only</td></tr>
+          <tr><td>Arrive base</td><td class="pa">Tue 21</td><td class="pb">Tue 21</td></tr>
+          <tr><td>Settle before Csopak</td><td class="pa">Wed 22 + Thu 23</td><td class="pb">Wed 22 + Thu 23</td></tr>
+          <tr><td>School childcare</td><td class="pa">lose Fri 17</td><td class="pb"><b>keep all</b> (skip last day by choice)</td></tr>
+          <tr><td>Leave days</td><td class="pa">Thu (0.5) + Fri + Mon + Tue</td><td class="pb">Mon 20 + Tue 21 (~2.0)</td></tr>
+          <tr><td>Main risk</td><td class="pa"><b>oversleep Sat = the jam</b></td><td class="pb">one fewer relaxed day at altitude</td></tr>
+        </tbody>
+      </table>
+      <p class="cnote"><b>Net:</b> A buys the full stationary Dolomites day but hinges on the Saturday 06:30 pass
+        dash; B (as booked) trades that day for the calmer lorry-free Sunday crossing and keeps all school
+        childcare plus near-zero leave. Both keep 2 settle days and Csopak Fri 24.</p>
+    </div>
+  </div>
+</section>
+
+<section id="days" style="padding-top:6px">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Day by day</p>
       <h2>Drive → see → sleep</h2>
-      <p>One column per route. 🚗 = a driving leg (<b>live OSRM</b> times — moving only, before breaks;
-        <span style="color:var(--sun);font-weight:600">amber</span> legs run over 6h). 🛏 = overnight (×2 = two
-        nights, a stationary rest stop). Routes end at the base — then settle, then Csopak 24 Jul.</p>
+      <p>The two plans, side by side. 🚗 = a driving leg; 🛏 = overnight. Both end at the base, then settle,
+        then Csopak 24 Jul.</p>
     </div>
-    <div id="itin" class="itin-grid"></div>
-  </div>
-</section>
+    <div class="itin-grid">
 
-<section id="options" style="padding-top:6px">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">The options</p>
-      <h2>Pick your trade-off</h2>
-    </div>
-    <div class="grid">
-
-      <!-- D -->
-      <article class="opt">
-        <div class="bar" style="background:var(--rt-d)"></div>
-        <div class="opt-body">
-          <span class="badge rec">Recommended / Lead</span>
-          <h3>D · Dolomites</h3>
-          <p class="route">Châlons → Stuttgart/Ulm → Brenner → Bolzano → <b>Predazzo (Val di Fiemme, 2)</b> → Villach → Ljubljana → Kecskemét base</p>
-          <div class="stats">
-            <div class="stat"><span class="n">~2,210</span><span class="l">km</span></div>
-            <div class="stat"><span class="n">5</span><span class="l">nights</span></div>
-            <div class="stat"><span class="n">~£2.4–2.9k</span><span class="l">cost</span></div>
-          </div>
-          <ul class="pl">
-            <li class="p">🛷 <b>Alpine Coaster Gardonè + cable car</b> at Predazzo — Erik's confirmed favourite (summer toboggan), repeat runs</li>
-            <li class="p">🦌 <b>Lago di Carezza</b> turquoise lake + easy trail for Ella (skipped Lago di Braies — pre-booked parking / 90-min boat queues / wrong way)</li>
-            <li class="p">🏔️ Brenner Pass weekday-AM crossing (toll-free German autobahn keeps cost down)</li>
-            <li class="p">⚙️ runs <b>standalone mountains → Hungary</b> (no Venice/Rovinj — they break the eastward line)</li>
-            <li class="p">✅ <b>no leg over ~6h</b> (long leg split at Ljubljana), <b>5 settle days</b> before Csopak</li>
-          </ul>
-          <div class="bestif"><b>Best if:</b> you want the adventure that actually fits the kids — Erik's coaster + Ella's lake, calmest arc, most settle days.</div>
-        </div>
-      </article>
-
-      <!-- A -->
-      <article class="opt">
-        <div class="bar" style="background:var(--rt-a)"></div>
-        <div class="opt-body">
-          <span class="badge dream">Eva's dream — reference</span>
-          <h3>A · Monaco Run</h3>
-          <p class="route">Châlons → <b>Avignon (2)</b> → Monaco (day) → Savona → Verona → <b>Rovinj (2)</b> → Kecskemét base</p>
-          <div class="stats">
-            <div class="stat"><span class="n">~2,550</span><span class="l">km</span></div>
-            <div class="stat"><span class="n">8</span><span class="l">nights</span></div>
-            <div class="stat"><span class="n">~£3.0–3.8k</span><span class="l">cost</span></div>
-          </div>
-          <ul class="pl">
-            <li class="p">🌉 <b>Pont du Gard</b> river swim on the Avignon rest day — Roman aqueduct (~£70): Ella swims, Erik gets the engineering wow, calm reset</li>
-            <li class="p">🏎️ <b>Monaco day stop</b> — sharks for Ella, supercars + F1 streets for Erik (never drive the circuit)</li>
-            <li class="p">Riviera glamour + two stationary nights at Rovinj</li>
-            <li class="c">Most km &amp; cost of the three; still has the "drag Erik off Monaco back into the car" structure</li>
-            <li class="c">The old brutal Thursday is now split (Avignon→Monaco→Savona ~5h, then Savona→Verona ~3h); only the ~6.5h final Rovinj→Kecskemét leg is long</li>
-          </ul>
-          <div class="bestif"><b>Best if:</b> kept as Eva's-dream reference — the Riviera glamour done properly, possibly its own future trip rather than bolted onto the Hungary drive.</div>
-        </div>
-      </article>
-
-      <!-- B -->
-      <article class="opt">
-        <div class="bar" style="background:var(--rt-b)"></div>
-        <div class="opt-body">
-          <span class="badge family">Roadtrip alt</span>
-          <h3>B · Venice / Lakes</h3>
-          <p class="route">Châlons → <b>Basel (overnight)</b> → Gotthard → Como → <b>Lake Garda (2)</b> → Venice/Mestre → Rovinj → Kecskemét base</p>
-          <div class="stats">
-            <div class="stat"><span class="n">~2,300</span><span class="l">km</span></div>
-            <div class="stat"><span class="n">6</span><span class="l">nights</span></div>
-            <div class="stat"><span class="n">~£2.2–3.0k</span><span class="l">cost</span></div>
-          </div>
-          <ul class="pl">
-            <li class="p">🛏️ <b>Basel overnight splits the Alps</b> — Châlons→Garda direct is ~9h (too brutal); a Basel night cuts it into ~4–5h legs. Basel friends away → paid Swiss night (+£200–300); B survives only as the Venice-nostalgia route.</li>
-            <li class="p">🐠 <b>Garda calm day: SEA Life + lakeside swim</b> (~£40/4) — aquarium for Ella, shaded Lazise/Bardolino beach, no queues: a restful landing, not a frantic Monaco morning</li>
-            <li class="p">🛶 <b>Venice</b> — the family's nostalgia stop (park Mestre mainland, train + vaporetto in; never drive the island)</li>
-            <li class="p">🏔️ Switzerland → Gotthard (weekday PM) → Como; a Garda lake "landing" for Eva's calm</li>
-            <li class="p">Comparable or <b>less</b> driving than A, <b>no leg over ~6h</b>, no Riviera dogleg — and cheaper than A</li>
-            <li class="c">Swiss (CHF40) + Slovenian + Croatian vignettes; cross Gotthard on a weekday to dodge Saturday jams</li>
-          </ul>
-          <div class="bestif"><b>Best if:</b> doing the roadtrip — most fun-per-effort, the calm Garda landing, Venice nostalgia, no brutal leg, <i>and</i> it costs less than A.</div>
-        </div>
-      </article>
-
-      <!-- C -->
-      <article class="opt">
-        <div class="bar" style="background:var(--rt-c)"></div>
-        <div class="opt-body">
-          <span class="badge frugal">The saver</span>
-          <h3>C · Lean &amp; fast</h3>
-          <p class="route">London → (Luxembourg) → Würzburg → Salzburg → (Vienna, Budapest) → Kecskemét base</p>
-          <div class="stats">
-            <div class="stat"><span class="n">~1,750</span><span class="l">km</span></div>
-            <div class="stat"><span class="n">2</span><span class="l">nights</span></div>
-            <div class="stat"><span class="n">~£500–650</span><span class="l">all-in</span></div>
-          </div>
-          <ul class="pl">
-            <li class="p">Cheapest by a mile — <b>~£500–650 all-in</b>, banking ~£2–3k + the energy for the 7 weeks</li>
-            <li class="p">Central corridor via <b>Luxembourg</b> — skips the Brussels ring + picks up cheap fuel; <b>avoids Munich</b>; no leg over ~6h</li>
-            <li class="p">🏰 <b>Salzburg overnight</b> — fortress + funicular (Erik), Mozart Alpine old town: ~30–45 min for a real wow stop, not the boring "done-it-before" corridor</li>
-            <li class="p">Calmest &amp; quickest to the base — most settle time before Csopak</li>
-            <li class="c">No scenery on the legs — but no grind either</li>
-            <li class="c"><b>Zero-detour swaps for Salzburg</b> if preferred: Regensburg (UNESCO Danube old town, on the A3) or Melk Abbey (Wachau)</li>
-          </ul>
-          <div class="bestif"><b>Best if:</b> budget or energy reality wins — bank the cash and the calm, arrive rested.</div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section id="cost" style="padding-top:6px">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">The money</p>
-      <h2>What each route costs to drive</h2>
-      <p>All-in for the outbound drive only — beds + fuel + tolls/vignettes + food + the headline detour.
-        Excludes Csopak/Zánka/SZIN (fixed whichever way you go) and the separate fast 2-day return.
-        Since the car drives either way, the real <b>"experience premium" of scenic-over-lean is only ~£1.5–3.3k</b>.</p>
-    </div>
-    <div class="costs">
-      <h3 style="font-size:1.04rem">Side by side</h3>
-      <p class="cnote" style="margin-top:6px">Leave days assume Tue/Wed/(Thu) drive then base-settle days fall on inset/holiday (0 leave). Vibe is the one-line character of each.</p>
-      <table class="acc">
-        <thead><tr><th>Plan</th><th>km</th><th>Nights</th><th>Cost (drive)</th><th>Leave</th><th>Vibe</th></tr></thead>
-        <tbody>
-          <tr class="hi"><td class="pw">D · Dolomites</td><td>~2,210</td><td>5</td><td>~£2.4–2.9k</td><td>~3 days</td><td>Adventure that fits the kids — alpine coaster, lake, calmest</td></tr>
-          <tr><td class="pw">A · Monaco Run</td><td>~2,550</td><td>8</td><td>~£3.0–3.8k</td><td>~3 days</td><td>Glam &amp; coastal — Riviera, Pont du Gard, Monaco, Rovinj</td></tr>
-          <tr><td class="pw">B · Venice / Lakes</td><td>~2,300</td><td>6</td><td>~£2.2–3.0k</td><td>~4 days</td><td>Venice nostalgia — Basel now paid (friends away); Garda lake day, SEA Life</td></tr>
-          <tr><td class="pw">C · Lean &amp; fast</td><td>~1,750</td><td>2</td><td>~£500–650</td><td>~3 days</td><td>Cheapest, calmest, quickest — central corridor + Salzburg, no Munich, via Luxembourg</td></tr>
-        </tbody>
-      </table>
-
-      <h3 style="font-size:1.04rem">Total to drive each route <span style="font-weight:400;font-size:.78rem;color:var(--ink-soft)">— beds + fuel + tolls + food + detour</span></h3>
-      <div class="crow" style="margin-top:8px">
-        <div class="nm">D · Dolomites<small>5 nights · Predazzo ×2 · Alpine Coaster Gardonè ~£300</small></div>
-        <div class="track"><div class="fill" style="width:75%;background:var(--rt-d)"></div></div>
-        <div class="amt">£2.4–2.9k</div>
+      <div class="tl-card pa">
+        <div class="tl-h"><span class="tl-key" style="background:var(--plan-a)">A</span><span class="tl-name">Plan A — Thu eve (Saturday crossing)</span></div>
+        <div class="tl-tot">2 Predazzo nights · full Dolomites day · arrive base Tue 21</div>
+        <ul class="tl">
+          <li class="stop tip"><span class="nm">🏁 London</span></li>
+          <li class="drive">🚗 DAO tour PM → M25 → tunnel ~19:15 (~1.5h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Thu 16</span>🛏 Calais</span><small>Cité Europe / Coquelles — switch ticket Fri→Thu</small></li>
+          <li class="drive long">🚗 ~8h</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Fri 17</span>🛏 Stuttgart</span><small>roll ~08:00 CEST; flat autobahn day</small></li>
+          <li class="drive long">🚗 06:30 start → Fernpass + Brenner (~6h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Sat 18</span>🛏 Predazzo ×2</span><small>⚠️ early start beats the Saturday Alpine jam</small></li>
+          <li class="stop"><span class="nm"><span class="day">Sun 19</span>Dolomites — stationary</span><small>Alpine Coaster Gardonè + Lago di Carezza · 0 drive</small></li>
+          <li class="drive">🚗 ~4h</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Mon 20</span>🛏 Ljubljana</span><small>leave day</small></li>
+          <li class="drive">🚗 ~4.5h</li>
+          <li class="stop tip"><span class="nm"><span class="day">Tue 21</span>🏁 Kecskemét base</span><small>arrive ~14:30–15:30 · leave day</small></li>
+          <li class="stop pass"><span class="nm"><span class="day">Wed–Thu 22–23</span>settle (WFH, 0 leave) → Csopak Fri 24</span></li>
+        </ul>
       </div>
-      <div class="crow">
-        <div class="nm">A · Monaco Run<small>8 nights · Avignon ×2 + Rovinj ×2 · Pont du Gard ~£70 + Monaco ~£60</small></div>
-        <div class="track"><div class="fill" style="width:100%;background:var(--rt-a)"></div></div>
-        <div class="amt">£3.0–3.8k</div>
+
+      <div class="tl-card pb">
+        <div class="tl-h"><span class="tl-key" style="background:var(--plan-b)">B</span><span class="tl-name">Plan B — Fri eve (Sunday crossing) · booked</span></div>
+        <div class="tl-tot">1 Predazzo night · calm Sunday pass · arrive base Tue 21</div>
+        <ul class="tl">
+          <li class="stop tip"><span class="nm">🏁 London</span></li>
+          <li class="drive">🚗 (skip last school day) → M25 → tunnel 18:36 (~1.5h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Fri 17</span>🛏 Calais</span><small>Cité Europe / Coquelles — check-in closes 17:36</small></li>
+          <li class="drive long">🚗 ~8h</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Sat 18</span>🛏 Stuttgart</span><small>German autobahn — NOT the French <i>samedi noir</i> Med artery</small></li>
+          <li class="drive long">🚗 Sun-AM → Fernpass + Brenner (~6h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Sun 19</span>🛏 Predazzo</span><small>lorry-free Sunday = calm crossing; coaster + Carezza PM</small></li>
+          <li class="drive">🚗 ~4h</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Mon 20</span>🛏 Ljubljana</span><small>leave day</small></li>
+          <li class="drive">🚗 ~4.5h</li>
+          <li class="stop tip"><span class="nm"><span class="day">Tue 21</span>🏁 Kecskemét base</span><small>arrive PM · leave day</small></li>
+          <li class="stop pass"><span class="nm"><span class="day">Wed–Thu 22–23</span>settle (WFH, 0 leave) → Csopak Fri 24</span></li>
+        </ul>
       </div>
-      <div class="crow">
-        <div class="nm">B · Venice / Lakes<small>6 nights · Basel overnight (paid — friends away) + Garda ×2 · SEA Life + lakeside swim ~£40/4</small></div>
-        <div class="track"><div class="fill" style="width:72%;background:var(--rt-b)"></div></div>
-        <div class="amt">£2.2–3.0k</div>
-      </div>
-      <div class="crow">
-        <div class="nm">C · Lean &amp; fast<small>2 nights · Würzburg + Salzburg · Alpine wow stop</small></div>
-        <div class="track"><div class="fill" style="width:17%;background:var(--rt-c)"></div></div>
-        <div class="amt">£500–650</div>
-      </div>
-      <p class="cnote"><b>The honest shape.</b> C is the cheapest by a mile — ~£500–650 all-in, banking ~£2–3k (plus the energy) for the 7-week stay. <b>B costs less than A</b> (~£300–1,800 less) while fixing A's worst flaw: a calm Garda lake day (SEA Life + lakeside swim) instead of a frantic Monaco morning, no leg over ~6h, a Basel overnight that splits the Alps, and a real landing for Eva. A is the priciest and the most km, justified only if the Riviera glamour specifically calls.</p>
+
     </div>
   </div>
 </section>
@@ -474,96 +343,55 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Don't get caught</p>
-      <h2>Shared traps + the 2026 HGV-ban calendar</h2>
-      <p>Summer Saturdays — especially <b>18 &amp; 25 Jul</b> — are car-changeover hell on French/German arteries.
-        Sundays are lorry-free = best for big motorway miles. Buy e-vignettes <i>before</i> each border.</p>
+      <h2>Black Saturday + the border kit</h2>
+      <p>Summer Saturdays — especially <b>18 &amp; 25 Jul</b> — are changeover hell on the arteries; Sundays are
+        lorry-free. The whole A-vs-B choice turns on which day you hit the Alpine passes.</p>
     </div>
 
     <div class="blacksat">
-      <div class="bs-head"><span class="bs-ic">⚫</span><h3>Black Saturday — what it is</h3></div>
+      <div class="bs-head"><span class="bs-ic">⚫</span><h3>Black Saturday — and why it decides A vs B</h3></div>
+      <p style="margin:6px 0 0;font-size:.9rem;color:var(--ink-soft)">FR <i>samedi noir</i> / DE <i>Reisewelle</i> / IT <i>esodo</i>: the peak-summer holiday changeover when Europe swaps over at once. For this route France is only NE transit (A26/A4) — <b>not</b> the southbound Med jam. The one real chokepoint is the <b>Fernpass + Brenner</b> passes.</p>
       <div class="bs-cols">
-        <div class="bs-col">
-          <h4>France · <i>samedi noir</i></h4>
-          <p>Bison Futé's <b>worst congestion tier (black)</b> — the peak-summer holiday-changeover Saturdays when
-            all of Europe swaps over at once (the <i>chassé-croisé</i>). The main Med arteries (<b>A7 / A9</b>)
-            gridlock for hours.</p>
+        <div class="bs-col a">
+          <h4>Plan A crosses Saturday</h4>
+          <p>Must go <b>early — 06:30 start</b> to clear the Fernpass/Brenner before the weekend rush builds.
+            Oversleep and you sit in it.</p>
         </div>
-        <div class="bs-col">
-          <h4>Same thing, other countries</h4>
-          <p><b>Germany — Reisewelle / Stau:</b> autobahns A8 Munich–Salzburg, A7, A93 + the Brenner approach.
-            <b>Italy — esodo estivo:</b> A22 Brennero, A4, the coast. <b>Austria / Switzerland:</b> the Alpine
-            passes — Fernpass, Brenner, Tauern, Gotthard.</p>
-        </div>
-        <div class="bs-col">
-          <h4>2026 dates</h4>
-          <p><b>Sat 18 &amp; Sat 25 Jul</b> — heavy → black, building toward August.</p>
+        <div class="bs-col b">
+          <h4>Plan B crosses Sunday morning</h4>
+          <p>Lorry-free and inherently calmer — no dawn dash. This is the structural advantage of the (booked)
+            Friday-evening departure.</p>
         </div>
       </div>
-      <p class="bs-why"><b>Why it barely touches Plan D.</b> D's French leg is a <b>NE transit</b> (A26/A4 up to Germany) —
-        <i>not</i> the southbound Med jam. D's only real chokepoints are the <b>Fernpass + Brenner</b> passes.
-        Rule: <b>cross weekday-morning, never on a peak Saturday; be stationary at Predazzo on Sat 18.</b>
+      <p class="bs-why"><b>The rule either way:</b> cross the passes weekday/Sunday-morning, never mid-Saturday.
         It's also the exact stop-and-go congestion type behind the family's past rear-end — worth dodging.</p>
     </div>
 
     <div class="notes">
       <div class="note warn">
-        <div class="ic">🚛</div>
-        <h4>2026 HGV bans (verify hours near the date)</h4>
-        <p><b>France:</b> Sat 07:00–19:00 (Sat 11, 18, 25 Jul) — Bison Futé black <b>Sat 25 Jul</b>, heavy Sat 18.
-          <b>Italy:</b> Sat 08:00–16:00, Sun 07:00–22:00; Fri 24 &amp; 31 Jul 16:00–22:00.
-          <b>Croatia:</b> coastal Sat 04:00–14:00, Sun 12:00–23:00 (summer 15 Jun–15 Sep).
-          <b>Hungary:</b> Sat 15:00 → Sun 22:00.</p>
+        <div class="ic">🎟️</div>
+        <h4>Vignettes — buy before each border</h4>
+        <p>Online the night before: <b>Austria</b> (10-day), <b>Slovenia</b>, <b>Hungary</b> (10-day D1). Germany
+          is toll-free for cars.</p>
       </div>
       <div class="note warn">
         <div class="ic">🅿️</div>
         <h4>ZTL — auto-fines</h4>
-        <p>Never drive into <b>Verona</b> or <b>Genova</b> old-town ZTLs (cameras fine you by post). Park
-          peripheral / take the bypass. <b>Venice = zero cars</b> — park Mestre (~€5–15/day), train/bus + vaporetto (~€9.50). <b>Monaco</b>: park Parking des Pêcheurs, never drive the circuit.</p>
+        <p>Don't drive into <b>Bolzano</b> or <b>Trento</b> old-town ZTLs (cameras fine you by post). Stay on the
+          bypass; Predazzo/Val di Fiemme is fine.</p>
       </div>
       <div class="note good">
-        <div class="ic">🎟️</div>
-        <h4>Vignettes &amp; tolls</h4>
-        <p><b>Slovenia coastal clip is now FREE</b> (no vignette from 1 Jan 2026 — take the Koper coast road).
-          <b>B:</b> Swiss CHF40 (covers Gotthard) + Slovenian ~€16 + Croatian. <b>C:</b> Austria 10-day €12.80 +
-          Hungary 10-day D1 ~€14 — buy e-vignettes before each border.</p>
+        <div class="ic">🚛</div>
+        <h4>2026 HGV bans (verify near the date)</h4>
+        <p><b>Italy:</b> Sat 08:00–16:00, Sun 07:00–22:00. <b>Austria:</b> Alpine-pass weekend limits.
+          <b>Hungary:</b> Sat 15:00 → Sun 22:00. Sundays are best for big motorway miles.</p>
       </div>
       <div class="note lock">
-        <div class="ic">🚇</div>
-        <h4>Tunnel + corridor timing</h4>
-        <p><b>Tue 14:</b> CAMHS + M25 has zero slack — Flexiplus "any service"; the rebook fare delta could be
-          £100–400, so price it first. <b>B:</b> cross Gotthard on a weekday afternoon (Saturday-morning jams).
-          <b>C:</b> Mannheim/Frankfurt fallback bed; clear Budapest M0 by mid-afternoon.</p>
+        <div class="ic">🛏</div>
+        <h4>Hotels</h4>
+        <p>Calais + Stuttgart refundable (~T-2 weeks). Predazzo free-cancel (2 nights for A, 1 for B).
+          Ljubljana 1–2 days ahead. Csopak 24–27 booked.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="depart" style="padding-top:6px">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">When to leave</p>
-      <h2>Best departure date</h2>
-      <p>Every variant is pinned by <b>CAMHS Tue 14 ~11:00</b> (can't roll before ~12:30 Tue) and <b>Csopak Fri 24</b>.
-        The departure date is the master lever — and it's the <i>same fork in every plan</i>. Below: the best pick per route.</p>
-    </div>
-    <div class="costs">
-      <h3 style="font-size:1.04rem">The best pick per plan</h3>
-      <p class="cnote" style="margin-top:6px">Settle days = nights at the base before Csopak. School childcare = the free, happy days lost by pulling the kids out early.</p>
-      <table class="acc">
-        <thead><tr><th>Variant</th><th>Depart</th><th>Arrive base</th><th>Settle days</th><th>Leave days</th><th>School childcare</th><th>Black-Sat risk</th></tr></thead>
-        <tbody>
-          <tr class="hi chosen"><td class="pw">D2 · Dolomites <span class="chosen-tag">✅ Likely · keep tour + full mountain day</span></td><td>Thu 16 PM (after DAO tour)</td><td>Tue 21 (or Mon 20 fast)</td><td>2 (3 fast)</td><td>~3.0 (~2.0 fast)</td><td>✅ Mon–Thu + tour; Fri skipped</td><td>⚠️ Sat-AM pass — <b>06:30 start required</b>; Sat 18 milder black Sat</td></tr>
-          <tr class="hi"><td class="pw">D3 · Dolomites <span class="live">Fallback · keep tour</span></td><td>Fri 17 (booked Eurotunnel)</td><td>Tue 21</td><td>2</td><td>~2.0</td><td>✅ kept Mon–Thu; Fri skipped by choice</td><td>Low — autobahn Sat 18, Fernpass/Brenner crosses Sun-AM</td></tr>
-          <tr class="hi"><td class="pw">D1 · Dolomites <span class="live">Alt · skip tour</span></td><td>Tue 14 (post-CAMHS)</td><td>Sun 19</td><td>5</td><td>~3</td><td>❌ lose 3 days</td><td>Low — in the Alps/Slovenia (not French arteries) across black Sat 18</td></tr>
-          <tr><td class="pw">A1 · Monaco Run</td><td>Tue 14 (post-CAMHS)</td><td>Tue 21</td><td>2</td><td>~3–3.5</td><td>❌ lose 3 days</td><td>Low — black Sat 18 spent driving east off the FR artery</td></tr>
-          <tr><td class="pw">B2 · Venice / Lakes</td><td>Wed 15</td><td>Tue 21</td><td>2</td><td>~3</td><td>❌ lose 3 days</td><td>Low — Gotthard on a weekday, sits out black Sat stationary at Garda</td></tr>
-          <tr><td class="pw">C1 · Lean &amp; fast</td><td>Tue 14 (post-CAMHS)</td><td>Fri 17</td><td>6</td><td>~3–3.5</td><td>❌ lose 3 days</td><td>None — zero Saturday exposure</td></tr>
-        </tbody>
-      </table>
-      <p class="cnote"><b>The universal fork.</b> Leave <b>Tue 14</b> = best traffic + most settle days, but you <b>lose 3 days of free school childcare</b> (Eva's concern) and burn most leave. Leave <b>Fri 17</b> = keep all childcare + near-zero leave + no Eurotunnel rebook, but a key leg lands on <b>black Saturday 18</b> and the settle buffer collapses (Plan A drops to 0). <b>Wed 15</b> rarely wins — it loses the same childcare as Tue 14 without Tue-14's buffer, and in Plan A it's the <i>worst</i> (Monaco on black Sat). B is the exception: B2 (Wed 15) wins by putting Gotthard on a weekday and parking out black Saturday at Garda.
-        <b>For Plan D the fork is now three-way.</b> <b>D2 (NEW LIKELY PICK, Thu 16 PM)</b>: DAO tour → tunnel ~18:30 → Reims overnight → Ulm → ⚠️ 06:30 Sat start over Fernpass/Brenner → Predazzo ×2 nights + full Sunday Dolomites day → Ljubljana → base Tue 21. ~3.0 leave (Thu 0.5 + Fri 0.5 + Mon + Tue). <b>THE PLAN sheet updated 11 Jun to D2.</b>
-        <b>D3 fallback (Fri 17)</b>: no Eurotunnel rebook, school childcare Mon–Thu kept, ~2.0 leave days (Mon 20 + Tue 21) — 2 settle days, Predazzo 1 night, Sun-AM pass. Use if the 06:30 Sat start is unrealistic.
-        <b>D1 alt (Tue 14)</b>: full 5-settle-day version; only if the DAO tour is dropped. Leave Tue 14–Thu 16 + ~0.5 Fri. The best picks per route are now <b>D2 (or D3/D1) / C1 / B2 / A1</b>.</p>
     </div>
   </div>
 </section>
@@ -572,157 +400,55 @@
   <div class="wrap">
     <div class="verdict">
       <p class="eyebrow">The call</p>
-      <h2>D leads · C if cash or energy wins</h2>
-      <p><b>Plan D (Dolomites)</b> is the lead: it's the adventure that actually fits the kids — <b>Erik's
-        confirmed-favourite Alpine Coaster</b> at Predazzo and <b>Ella's turquoise Lago di Carezza</b> — on the
-        calmest arc of the four, with the <b>most settle days (5)</b> before Csopak, <b>no leg over ~6h</b>, and at
-        roughly the <i>same cost</i> as B (~£2.4–2.9k). One hero day, then drop to the base.</p>
-      <p class="alt"><b>The honest fallback:</b> <b>Plan C (Lean &amp; fast)</b> is ~£500–650 all-in — banking ~£2–3k
-        and the energy for the 7-week stay, calmest and quickest to the base. <b>Plan B (Venice / Lakes)</b> is now
-        only worth it <b>if the Venice nostalgia outweighs Erik's coaster</b> — it never gives him his confirmed hit.
-        <b>Plan A (Monaco Run)</b> is the weakest: most km and cost, and still the Monaco-meltdown structure. Remember:
-        the car's driving either way, so this is purely the outbound-route choice.</p>
+      <h2>B is booked · A is a free upgrade if the 06:30 start is realistic</h2>
+      <p><b>Plan B</b> (Fri 17 eve, as booked) is the safe default: the Sunday-morning Alpine crossing is
+        lorry-free and calm, it keeps all the free school childcare and needs only ~2 leave days. The only cost
+        is one fewer day at altitude.</p>
+      <p class="alt"><b>Plan A</b> (switch the ticket to Thu 16 eve) buys a <b>full stationary Dolomites day</b> —
+        a second Predazzo night, coaster + Lago di Carezza unhurried — but it hinges entirely on a
+        <b>06:30 Saturday start</b> over the Fernpass. Take A only if that early start is realistic with the kids;
+        otherwise B is the honest choice. Same route, same base arrival (Tue 21), either way.</p>
     </div>
   </div>
 </section>
 
-<section id="runit" style="padding-top:6px">
+<section id="book" style="padding-top:6px">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">The plan, in motion</p>
-      <h2>How we'll run it + what to book when</h2>
-      <p>One flexible <b>Alpine line</b> with a cheap bail built in — decide full-D vs lean-D at the pass, on
-        cash, energy and the kids.</p>
+      <p class="eyebrow">Make it happen</p>
+      <h2>What to book / do</h2>
     </div>
-
-    <div class="runit-grid">
-      <div class="ri-card">
-        <h3 class="ri-h">🏔 The flexible Alpine line</h3>
-        <p class="ri-line">Calais → Châlons → Stuttgart/Ulm → <b>Fernpass → Brenner</b> → Predazzo → Villach →
-          Ljubljana → Kecskemét base → Csopak.</p>
-        <p class="ri-note"><b>No Munich</b> — the Fernpass sits <i>west</i> of it.</p>
-        <ul class="ri-lever">
-          <li><span class="lv-tag full">Full D</span> 2 nights Predazzo + Alpine Coaster Gardonè</li>
-          <li><span class="lv-tag lean">Lean D</span> skip Predazzo, push through the same Brenner/Slovenia line
-            — cheap bail, ~£100 over the floor, still no Munich</li>
-          <li><span class="lv-tag floor">Floor</span> True-C via Munich = absolute-cheapest, only if cash is dire</li>
-        </ul>
-        <p class="ri-note">Decide <b>on the day at the pass</b> — on cash, energy and the kids.</p>
-      </div>
-
-      <div class="ri-card" style="border-left:4px solid var(--rt-d);background:#e8f3ec">
-        <h3 class="ri-h">🗓 D2-Calais day-by-day <span class="chosen-tag">✅ THE PLAN · keep tour + full Dolomites day</span></h3>
-        <ul class="ri-days">
-          <li><b>Thu 16</b> Kids school AM → DAO tour PM (ends ~16:00, car pre-loaded) → M25 J24 → <b>Eurotunnel ~19:15</b> → <b>Calais/Coquelles</b> (Cité Europe hotel, ~£80–100; kids in bed ~22:00) <span class="ri-eta">Thu-PM launch</span></li>
-          <li><b>Fri 17</b> Roll 08:00 CEST → <b>Stuttgart 16:30–18:00</b> (~8h elapsed, good-day est ×1.25 for stops + jam budget) <span class="ri-eta">long flat day</span></li>
-          <li><b>Sat 18</b> ⚠️ <b>06:30 start</b> — Fernpass + Brenner EARLY before Saturday build → <b>Predazzo 12:30–13:30</b>, coaster PM <span class="ri-eta">early start required</span></li>
-          <li><b>Sun 19</b> <b>Full Dolomites day</b> — coaster again + Lago di Carezza · <em>optional Garda graft (cost-neutral): coaster/Carezza AM → drive Riva del Garda (~1h45) → lake swim + lakeside night; Mon = Riva → Ljubljana (~5h). Decide on the day.</em> <span class="ri-eta">0 drive (or Riva branch)</span></li>
-          <li><b>Mon 20</b> → Ljubljana (~4h; ~5h if from Riva) <span class="ri-eta">~4h</span></li>
-          <li><b>Tue 21</b> → Kecskemét base <span class="ri-eta">14:30–15:30</span></li>
-          <li><b>Wed–Thu 22–23</b> settle · Csopak Fri 24</li>
-        </ul>
-        <p class="ri-note"><b>5 hotel nights</b> (Calais/Coquelles, Stuttgart, Predazzo ×2, Ljubljana) · <b>~3.0 leave</b> (Thu 0.5 + Fri 0.5 + Mon + Tue) · 2 settle days.
-          vs D3: <b>+~£130 hotel +~1 leave buys a FULL second Dolomites day</b> (fixes D3's arrive-tired-same-day-coaster weakness).
-          ⚠️ <b>The condition:</b> everything hangs on the <b>06:30 Sat start</b> over the Fernpass. Oversleep = the jam. D3 (Sun-AM crossing) is the fallback if this is unrealistic.
-          <b>Booking NOW:</b> rebook Eurotunnel → Thu 16 ~19:00 (price peak delta); book Coquelles hotel (Cité Europe, ~£80–100) + Predazzo ×2 (both free-cancel, cancellable to day-before); submit 3.0 leave days. <b>THE PLAN sheet now reads Thu=Calais (Coquelles), Fri=Stuttgart.</b></p>
-      </div>
-
-      <div class="ri-card" style="border-left:4px solid var(--rt-d)">
-        <h3 class="ri-h">🗓 D3 · Relaxed Friday day-by-day <span class="live">Named fallback · if 06:30 Sat start unrealistic</span></h3>
-        <ul class="ri-days">
-          <li><b>Thu 16</b> Dame Alice Owen tour (home) <span class="ri-eta">0 drive</span></li>
-          <li><b>Fri 17</b> <em>School skipped by choice</em> — relaxed ~10:00 depart; Flexiplus pull to ~midday; Calais ~14:00 CEST; <b>Châlons by ~17:30</b> <span class="ri-eta">sane arrival</span></li>
-          <li><b>Sat 18</b> → Stuttgart/Ulm (~5h autobahn — not the Med jam, not the pass) <span class="ri-eta">~5h</span></li>
-          <li><b>Sun 19</b> → Fernpass/Brenner early-AM → Predazzo; coaster + Lago di Carezza PM</li>
-          <li><b>Mon 20</b> → Ljubljana <span class="ri-eta">~4h</span></li>
-          <li><b>Tue 21</b> → Kecskemét base <span class="ri-eta">~4.5h, PM</span></li>
-          <li><b>Wed 22–Thu 23</b> 2 settle days → Csopak Fri 24</li>
-        </ul>
-        <p class="ri-note"><b>Black Sat handled:</b> Sat 18 = autobahn (not Med/pass); Fernpass/Brenner crosses Sun-AM.
-          <b>Trade vs D1:</b> −3 settle days, Predazzo 1 night not 2, Sun pass not Thu.
-          <b>Saves:</b> no rebook, school childcare Mon–Thu kept (Fri 17 skipped by choice). Leave = <b>~2.0 days</b> (Mon 20 + Tue 21; Fri 17 rides the half-day Friday).</p>
-      </div>
-
-      <div class="ri-card">
-        <h3 class="ri-h">🗓 D1 day-by-day <span class="live">Alt · skip tour</span></h3>
-        <ul class="ri-days">
-          <li><b>Tue 14</b> CAMHS → Châlons <span class="ri-eta">~19:45</span></li>
-          <li><b>Wed 15</b> → Stuttgart/Ulm <span class="ri-eta">~5h</span></li>
-          <li><b>Thu 16</b> → Predazzo via Fernpass/Brenner weekday-AM <span class="ri-eta">~13:00</span></li>
-          <li><b>Fri 17</b> coaster + Lago di Carezza <span class="ri-eta">0 drive</span></li>
-          <li><b>Sat 18</b> → Ljubljana (eastern Alps — off the French black-Sat arteries)</li>
-          <li><b>Sun 19</b> → base <span class="ri-eta">~14:30</span></li>
-        </ul>
-        <p class="ri-note"><b>5 settle days</b> before Csopak (Fri 24) — but skips Ella's school tour.</p>
-      </div>
-    </div>
-
     <div class="booking">
-      <h3 class="ri-h" style="margin-bottom:6px">✅ What to book, when</h3>
       <div class="bk-grid">
         <div class="bk-col now">
-          <h4>NOW</h4>
+          <h4>Now / this week</h4>
           <ul class="bk-list">
-            <li><b>Eurotunnel — rebook to Thu 16 ~19:00</b> (Flexiplus; price the peak fare delta first). Fallback: keep Fri-17 booking if switching to D3.</li>
-            <li><b>Coquelles hotel</b> (Cité Europe, ~£80–100, free-cancel) — Thu 16 night 1.</li>
-            <li>Predazzo <b>×2 nights free-cancellation, cancellable to day-before</b> (D2-full). Can drop to 1 night if switching to D3. Peak-July rates close fast.</li>
-            <li>Leave days: <b>D2 ~3.0</b> (Thu 16 × 0.5 + Fri 17 × 0.5 + Mon 20 + Tue 21). D3 fallback: ~2.0 (Mon 20 + Tue 21). D1 alt: ~3.5 (Tue 14 + Wed 15 + Thu 16 + ~0.5 Fri).</li>
-            <li><b>THE PLAN sheet now reads Thu=Calais (Coquelles), Fri=Stuttgart</b> (updated 12 Jun).</li>
+            <li><b>Ticket:</b> booked Fri 17 (Plan B). For Plan A, switch outbound to Thu 16 ~19:15 (FlexiPlus — price the delta first).</li>
+            <li><b>Pre-trip:</b> breakdown cover, Mounjaro cold chain, Sid feeder, VE103 in glovebox, licences.</li>
+            <li><b>Leave:</b> submit per plan — A: Thu 16 (0.5) + Fri 17 + Mon 20 + Tue 21; B: Mon 20 + Tue 21. Nothing submitted yet.</li>
           </ul>
         </div>
         <div class="bk-col t2">
           <h4>T-2 weeks</h4>
           <ul class="bk-list">
-            <li>Confirm Stuttgart night (Fri 17) <b>refundable</b></li>
-            <li>Ljubljana/Bled book refundable (1–2 days out on road)</li>
+            <li>Calais night 1 + Stuttgart night 2 — refundable.</li>
+            <li>Predazzo free-cancel (2 nights A / 1 night B).</li>
           </ul>
         </div>
         <div class="bk-col road">
           <h4>On the road</h4>
           <ul class="bk-list">
-            <li>Ljubljana 1–2 days ahead (refundable)</li>
-            <li>Vignettes (AT, SI, HU) online night-before-border</li>
-            <li>Gardonè coaster is walk-up</li>
-            <li>Decide full-D vs lean-D at the pass</li>
-            <li>Riva del Garda graft — decide on the day (Sun 19); no pre-booking needed</li>
+            <li>Ljubljana 1–2 days ahead (refundable).</li>
+            <li>Vignettes AT / SI / HU night-before-border.</li>
+            <li>Gardonè coaster is walk-up.</li>
           </ul>
         </div>
         <div class="bk-col done">
           <h4>Done</h4>
           <ul class="bk-list">
+            <li>Le Shuttle 17034554 — out Fri 17 18:36, return Tue 1 Sep ✓</li>
             <li>Csopak 24–27 booked ✓</li>
-            <li><b>Passports:</b> dual UK/HU — use HU at Schengen entry (no EES, no 90/180 rule, no 3-month-validity rule); UK at UK re-entry. Check HU expiries.</li>
-          </ul>
-        </div>
-      </div>
-    <div class="booking" style="margin-top:22px;border-left:4px solid var(--rose)">
-      <h3 class="ri-h" style="margin-bottom:10px">⚠️ Pre-trip checklist — gotchas found in 11 Jun review</h3>
-      <div class="bk-grid">
-        <div class="bk-col" style="--col-color:var(--rose)">
-          <h4 style="color:var(--rose);border-color:var(--rose)">🔴 Critical — do first</h4>
-          <ul class="bk-list">
-            <li><b>VE103B ✅ done</b> — issued 23 Jan 2026 (ref 884/244155, Activate247/DriverZone), valid 12 months. Only action: <b>confirm it's physically in the glovebox</b> before departure.</li>
-            <li><b>Driving licences physically in hand</b> — confirm both (DVLA exchange saga, case 300164653-DC).</li>
-            <li><b>European breakdown cover</b> — not documented in car/; check Aviva Gold, else buy single-trip European cover (~£60–100).</li>
-          </ul>
-        </div>
-        <div class="bk-col">
-          <h4 style="color:var(--sun);border-color:var(--sun)">🟠 Important — sort well before departure</h4>
-          <ul class="bk-list">
-            <li><b>Mounjaro × 7 weeks</b> — order supply ahead; cold chain for 6 July car days: cool bag + ice packs + fridge at every overnight (unopened pens 2–8°C; in-use ≤30°C — car interiors exceed this).</li>
-            <li><b>Erik's meds (controlled drugs)</b> — GP letter + prescriptions for 5+ borders; 7-week supply; same paperwork wanted at Ark induction 2 Jul.</li>
-            <li><b>Sid (cat)</b> — confirm 7-week feeder arrangement; decide accident/illness insurance vs £1k reserve.</li>
-            <li><b>Predazzo rate</b> — book free-cancellation <b>cancellable until day-before</b> (peak-July rates often close 3–7 days out; else accept ~£130 forfeit risk).</li>
-          </ul>
-        </div>
-        <div class="bk-col">
-          <h4 style="color:var(--olive);border-color:var(--olive)">🟡 Before booking / packing</h4>
-          <ul class="bk-list">
-            <li><b>Pay hotels on Amex/Lloyds Ultra, NOT Barclaycard</b> (BC peaks at 89% of limit on 8 Aug).</li>
-            <li><b>Car prep</b> — service/tyres/fluids before ~4,500 km; UK sticker, beam deflectors, hi-vis ×4, triangle (FR/AT/IT/SI/HU kit); carry open Aviva claim ref + European Accident Statement form.</li>
-            <li><b>Passports</b> — dual UK/HU: HU at Schengen entry (no EES/90-180), UK at UK re-entry; check HU expiries.</li>
-            <li><b>CAMHS Tue 14 time</b> — verify ~11:00 only if D1 stays live.</li>
-            <li><b>THE PLAN sheet</b> — add the Thu 16 Jul Dame Alice Owen tour row.</li>
+            <li><b>Passports:</b> dual UK/HU — HU at Schengen entry, UK at UK re-entry; check HU expiries.</li>
           </ul>
         </div>
       </div>
@@ -732,243 +458,145 @@
 
 <footer>
   <div class="wrap">
-    Updated 12 Jun 2026 (D2-Calais final shape, Garda graft, Basel resolved, Monaco rebadged) · plans from <code>travel/july-drive-2026-plans.md</code> ·
+    Updated 10 Jul 2026 (two Dolomites variants — Plan A / Plan B) · plans from <code>travel/july-drive-2026-plans.md</code> ·
     map © OpenStreetMap contributors, CARTO, Leaflet · routing © OSRM
   </div>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-  const map = L.map('map',{scrollWheelZoom:false}).setView([47.6, 9.5], 5);
+  const map = L.map('map',{scrollWheelZoom:false}).setView([48.5,10.5],5);
   const streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
     attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
   }).addTo(map);
   const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{
     attribution:'Imagery &copy; Esri, Maxar, Earthstar Geographics', maxZoom:19
   });
-  const baseLayers = {'Map':streets,'Satellite':satellite};
+  L.control.layers({'Map':streets,'Satellite':satellite},null,{collapsed:true,position:'topright'}).addTo(map);
 
-  const P = {
-    calais:[50.95,1.86], chalons:[48.96,4.36], avignon:[43.95,4.81], pontdugard:[43.95,4.54],
-    monaco:[43.74,7.42], savona:[44.31,8.48], verona:[45.44,10.99], rovinj:[45.08,13.64],
-    basel:[47.56,7.59], gotthard:[46.58,8.59], como:[45.81,9.08], garda:[45.43,10.73],
-    venice:[45.49,12.24], wurzburg:[49.79,9.95], linz:[48.31,14.29], wien:[48.21,16.37],
-    budapest:[47.50,19.04], kecskemet:[46.91,19.69], csopak:[46.96,17.90],
-    luxembourg:[49.61,6.13], salzburg:[47.80,13.05],
-    ulm:[48.40,9.99], brenner:[47.00,11.51], bolzano:[46.50,11.35], predazzo:[46.31,11.60],
-    villach:[46.61,13.85], ljubljana:[46.06,14.51],
-    stuttgart:[48.78,9.18], riva:[45.885,10.84]
-  };
   const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
-
-  // each route = ordered, named stops. End = Kecskemét base (settle, then Csopak 24th).
-  const R={
-    A:{color:css('--rt-a'),dash:null,name:'Monaco Run',nights:8,sleep:['Châlons','Avignon','Savona','Verona','Rovinj'],stops:[['Calais',P.calais],['Châlons',P.chalons],['Avignon',P.avignon],['Monaco',P.monaco],['Savona',P.savona],['Verona',P.verona],['Rovinj',P.rovinj],['Kecskemét',P.kecskemet]]},
-    B:{color:css('--rt-b'),dash:'8 7',name:'Venice / Lakes',nights:6,sleep:['Châlons','Basel','Lake Garda','Venice','Rovinj'],stops:[['Calais',P.calais],['Châlons',P.chalons],['Basel',P.basel],['Gotthard',P.gotthard],['Como',P.como],['Lake Garda',P.garda],['Venice',P.venice],['Rovinj',P.rovinj],['Kecskemét',P.kecskemet]]},
-    C:{color:css('--rt-c'),dash:null,name:'Lean & fast',nights:2,sleep:['Würzburg','Salzburg'],stops:[['Calais',P.calais],['Luxembourg',P.luxembourg],['Würzburg',P.wurzburg],['Salzburg',P.salzburg],['Wien',P.wien],['Budapest',P.budapest],['Kecskemét',P.kecskemet]]},
-    D:{color:css('--rt-d'),dash:'2 6',name:'Dolomites',nights:5,sleep:['Calais','Stuttgart','Predazzo','Ljubljana'],maybe:['Riva del Garda'],stops:[['Calais',P.calais],['Stuttgart',P.stuttgart],['Ulm',P.ulm],['Brenner',P.brenner],['Bolzano',P.bolzano],['Predazzo',P.predazzo],['Riva del Garda',P.riva],['Villach',P.villach],['Ljubljana',P.ljubljana],['Kecskemét',P.kecskemet]]}
+  const P = {
+    calais:[50.95,1.86], stuttgart:[48.78,9.18], ulm:[48.40,9.99], fernpass:[47.36,10.83],
+    brenner:[47.00,11.51], bolzano:[46.50,11.35], predazzo:[46.31,11.60], villach:[46.61,13.85],
+    ljubljana:[46.06,14.51], kecskemet:[46.91,19.69], csopak:[46.96,17.90]
   };
-  const dbl={'Avignon':1,'Lake Garda':1,'Predazzo':1}; // Rovinj is ×2 in A but ×1 in B — left unmarked (night counts live in totals)
-  const endpt={'Calais':1,'Kecskemét':1};
-  const SIGHT={Calais:'D2 night 1 — Coquelles hotel by the terminal (Cité Europe)','Châlons':'Champagne — D1/D3 first night',Avignon:'Pont du Gard river swim ★ (rest day)',Monaco:'sharks (Ella) + supercars & F1 streets (Erik) — day stop, never drive the circuit',Savona:'Riviera split-leg overnight',Verona:'Roman arena — park peripheral (ZTL)',Rovinj:'swimmable Adriatic, dolphins ★',Basel:'Rhine old town · Swiss vignette — overnight (splits the Alps)',Gotthard:'Alpine pass — cross weekday PM',Como:'lakeside (pass)','Lake Garda':'SEA Life aquarium (Ella) + Lazise lakeside swim ★ — calm rest day',Venice:'the nostalgia stop — park Mestre, train + vaporetto in','Würzburg':'Franconian stop on the central corridor',Linz:'Danube decompress (free on-route stop)','Luxembourg':'cheap-fuel stop — skips the Brussels ring','Salzburg':'fortress + funicular (Erik), Alpine old town — overnight',Wien:'Vienna (pass)',Budapest:'M0 ring — clear by mid-afternoon','Kecskemét':'the base — settle, then Csopak 24 Jul 🎉',Stuttgart:'D2 Fri 17 night — ~8h elapsed day from Calais',Ulm:'autobahn overnight (toll-free Germany; D1/D3)',Brenner:'Alpine pass — cross weekday AM (summer-Sat jams)',Bolzano:'Dolomites gateway — bypass (ZTL)',Predazzo:'Alpine Coaster Gardonè ★ + cable car (Erik) · Lago di Carezza (Ella)','Riva del Garda':'optional Garda night (Sun) — swaps 2nd Predazzo night',Villach:'pass',Ljubljana:'split-the-leg overnight (Bled 30 min)'};
 
-  const groups={};
-  Object.entries(R).forEach(([k,r])=>{
-    groups[k]=L.layerGroup().addTo(map);
-    r.stops.forEach(([name,ll])=>{
-      const isSleep=r.sleep.includes(name), isMaybe=r.maybe&&r.maybe.includes(name);
-      if(isSleep||isMaybe){
-        const col=isMaybe?'#e8743b':r.color;
-        L.marker(ll,{icon:L.divIcon({className:'',html:`<div class="bedpin" style="border-color:${col}">🛏</div>`,iconSize:[24,24],iconAnchor:[12,12]}),zIndexOffset:600})
-          .addTo(groups[k]).bindTooltip((isMaybe?'🛏? ':'🛏 ')+name+(dbl[name]?' ×2':'')+(isMaybe?' · if hosted':''),{permanent:true,direction:'top',className:'pin sleep'+(isMaybe?' maybe':''),offset:[0,-12]});
-      }else if(endpt[name]){
-        L.circleMarker(ll,{radius:7,color:'#fff',weight:2,fillColor:'#1c5870',fillOpacity:1})
-          .addTo(groups[k]).bindTooltip(name,{permanent:true,direction:'top',className:'pin',offset:[0,-6]});
-      }else{
-        L.circleMarker(ll,{radius:4,color:'#fff',weight:1.5,fillColor:r.color,fillOpacity:1})
-          .addTo(groups[k]).bindTooltip(name,{direction:'top',className:'pin',offset:[0,-5]});
-      }
-    });
+  // Shared Dolomites spine (both plans). End = Kecskemét base (settle, then Csopak 24th).
+  const SPINE = [
+    ['Calais',P.calais],['Stuttgart',P.stuttgart],['Ulm',P.ulm],['Fernpass',P.fernpass],
+    ['Brenner',P.brenner],['Bolzano',P.bolzano],['Predazzo',P.predazzo],['Villach',P.villach],
+    ['Ljubljana',P.ljubljana],['Kecskemét',P.kecskemet]
+  ];
+  const SIGHT = {
+    'Calais':'overnight both plans — Cité Europe / Coquelles by the terminal',
+    'Stuttgart':'overnight both plans — flat autobahn day from Calais',
+    'Ulm':'on the autobahn line toward the Alps',
+    'Fernpass':'Alpine pass, WEST of Munich — the whole point (no A8)',
+    'Brenner':'Alpine pass into Italy — cross weekday/Sun-AM, never mid-Saturday',
+    'Bolzano':'Dolomites gateway — bypass the ZTL',
+    'Predazzo':'Alpine Coaster Gardonè ★ (Erik) + Lago di Carezza (Ella)',
+    'Villach':'pass — split-the-leg toward Slovenia',
+    'Ljubljana':'overnight both plans — Bled 30 min away',
+    'Kecskemét':'the base — settle, then Csopak 24 Jul 🎉'
+  };
+  const routeGroup = L.layerGroup().addTo(map);
+  const endpt = {'Calais':1,'Kecskemét':1};
+
+  // waypoint circles (shared for both plans)
+  SPINE.forEach(([name,ll])=>{
+    if(endpt[name]){
+      L.circleMarker(ll,{radius:7,color:'#fff',weight:2,fillColor:'#1c5870',fillOpacity:1})
+        .addTo(routeGroup).bindTooltip(name,{permanent:true,direction:'top',className:'pin',offset:[0,-6]});
+    }else{
+      L.circleMarker(ll,{radius:4,color:'#fff',weight:1.5,fillColor:css('--sea-deep'),fillOpacity:1})
+        .addTo(routeGroup).bindTooltip(name,{direction:'top',className:'pin',offset:[0,-5]})
+        .bindPopup('<b>'+name+'</b><br>'+(SIGHT[name]||''));
+    }
   });
 
-  // straight line as instant fallback, upgraded to real road geometry + live drive times from OSRM
-  function drawStraight(k){
-    const r=R[k], wp=r.stops.map(s=>s[1]);
-    L.polyline(wp,{color:r.color,weight:4.5,opacity:.8,dashArray:r.dash,lineJoin:'round'}).addTo(groups[k]);
+  // route line — straight fallback, upgraded to real road geometry via OSRM
+  let _line=null;
+  function setLine(latlngs,color){
+    if(_line) routeGroup.removeLayer(_line);
+    _line=L.polyline(latlngs,{color:color,weight:4.5,opacity:.85,lineJoin:'round'}).addTo(routeGroup);
+    _line.bringToBack();
   }
-  async function drawReal(k){
-    const r=R[k], wp=r.stops.map(s=>s[1]);
+  const wp = SPINE.map(s=>s[1]);
+  setLine(wp, css('--plan-a'));
+  (async function drawReal(){
     try{
       const coords=wp.map(p=>`${p[1]},${p[0]}`).join(';');
       const res=await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`);
       if(!res.ok) throw 0;
       const data=await res.json();
       const route=data.routes&&data.routes[0]; if(!route) throw 0;
-      const latlngs=route.geometry.coordinates.map(c=>[c[1],c[0]]);
-      groups[k].eachLayer(l=>{ if(l instanceof L.Polyline && !(l instanceof L.CircleMarker)) groups[k].removeLayer(l); });
-      L.polyline(latlngs,{color:r.color,weight:4.5,opacity:.8,dashArray:r.dash,lineJoin:'round'}).addTo(groups[k]);
-      r._legs=route.legs; r._dur=route.duration; r._dist=route.distance;
-      renderItin();
+      _geo=route.geometry.coordinates.map(c=>[c[1],c[0]]);
+      setLine(_geo, css(activeVariant==='A'?'--plan-a':'--plan-b'));
     }catch(e){ /* keep straight-line fallback */ }
-  }
+  })();
+  let _geo=null;
 
-  const fmt=sec=>{const h=Math.floor(sec/3600),m=Math.round((sec%3600)/60);return h+'h'+(m?(' '+m+'m'):'');};
-  function node(r,name,kind){
-    const sight=SIGHT[name]||''; let cls='stop',icon='',tag='';
-    if(kind==='start'){icon='🏁 ';cls+=' tip';}
-    else if(kind==='end'){icon='🏁 ';cls+=' tip end';}
-    else if(r.sleep.includes(name)){cls+=' sleep';icon='🛏 ';tag=dbl[name]?' ×2':'';}
-    else if(r.maybe&&r.maybe.includes(name)){cls+=' maybe';icon='🛏? ';tag=' · if hosted';}
-    else cls+=' pass';
-    return `<li class="${cls}"><span class="nm">${icon}${name}${tag}</span>${sight?`<small>${sight}</small>`:''}</li>`;
-  }
-  function renderItin(){
-    const el=document.getElementById('itin'); if(!el) return; let html='';
-    Object.entries(R).forEach(([k,r])=>{
-      if(!r._legs) return;
-      html+=`<div class="tl-card"><div class="tl-h"><span class="tl-key" style="background:${r.color}">${k}</span><span class="tl-name">${r.name}</span></div><div class="tl-tot">${fmt(r._dur)} driving · ${Math.round(r._dist/1000).toLocaleString()} km · ${r.nights} nights</div><ul class="tl">`;
-      html+=node(r,r.stops[0][0],'start');
-      for(let i=0;i<r._legs.length;i++){
-        const hrs=r._legs[i].duration/3600;
-        html+=`<li class="drive${hrs>6?' long':''}">🚗 ${hrs.toFixed(1)}h</li>`;
-        html+=node(r,r.stops[i+1][0], i===r._legs.length-1?'end':'mid');
-      }
-      html+='</ul></div>';
-    });
-    el.innerHTML=html;
-  }
-  Object.keys(R).forEach(k=>{ drawStraight(k); drawReal(k); });
-
-  const routeA=groups.A, routeB=groups.B, routeC=groups.C, routeD=groups.D;
-
-  const overlays={
-    "🔵 D · Dolomites (lead)":routeD,
-    "🔴 A · Monaco Run (Riviera)":routeA,
-    "🟠 B · Venice / Lakes":routeB,
-    "🟢 C · Lean & fast":routeC
+  // Plan A / Plan B overnight pins
+  const VARIANTS = {
+    A: { color:css('--plan-a'), beds:[
+      {name:'Calais',    ll:P.calais,    tip:'Calais — Thu 16 night (Cité Europe)', dbl:false},
+      {name:'Stuttgart', ll:P.stuttgart, tip:'Stuttgart — Fri 17 night',            dbl:false},
+      {name:'Predazzo',  ll:P.predazzo,  tip:'Predazzo — Sat 18 + Sun 19 (full Dolomites day)', dbl:true},
+      {name:'Ljubljana', ll:P.ljubljana, tip:'Ljubljana — Mon 20 night',            dbl:false}
+    ], base:'arrive base Tue 21' },
+    B: { color:css('--plan-b'), beds:[
+      {name:'Calais',    ll:P.calais,    tip:'Calais — Fri 17 night (Cité Europe)', dbl:false},
+      {name:'Stuttgart', ll:P.stuttgart, tip:'Stuttgart — Sat 18 night',            dbl:false},
+      {name:'Predazzo',  ll:P.predazzo,  tip:'Predazzo — Sun 19 night',             dbl:false},
+      {name:'Ljubljana', ll:P.ljubljana, tip:'Ljubljana — Mon 20 night',           dbl:false}
+    ], base:'arrive base Tue 21' }
   };
-  L.control.layers(baseLayers,overlays,{collapsed:false,position:'topright'}).addTo(map);
 
-  // D-variant night switcher — in-map control, top-left
-  const DVarControl = L.Control.extend({
+  let activeVariant='A';
+  let _bedLayers=[];
+  function renderVariant(v){
+    activeVariant=v;
+    _bedLayers.forEach(l=>routeGroup.removeLayer(l));
+    _bedLayers=[];
+    const vd=VARIANTS[v];
+    vd.beds.forEach(b=>{
+      const m=L.marker(b.ll,{icon:L.divIcon({className:'',html:`<div class="bedpin" style="border-color:${vd.color}">🛏</div>`,iconSize:[24,24],iconAnchor:[12,12]}),zIndexOffset:600});
+      m.bindTooltip('🛏 '+b.tip+(b.dbl?' ×2':''),{permanent:true,direction:'top',className:'pin sleep',offset:[0,-12]});
+      routeGroup.addLayer(m); _bedLayers.push(m);
+    });
+    if(_line) _line.setStyle({color:vd.color});
+  }
+
+  // in-map Plan A / Plan B control (top-left)
+  const VarControl = L.Control.extend({
     options:{position:'topleft'},
     onAdd(){
-      const div = L.DomUtil.create('div','d-variant-map-ctrl');
-      div.innerHTML = '<span class="dv-label">D nights</span><span class="d-variant-ctrl" id="dVariantCtrl">'+
-        '<button data-v="D1">D1</button><button data-v="D2" class="active">D2</button><button data-v="D3">D3</button></span>';
+      const div=L.DomUtil.create('div','d-variant-map-ctrl');
+      div.innerHTML='<span class="dv-label">Plan</span><span class="d-variant-ctrl" id="varCtrl">'+
+        '<button data-v="A" class="active">A · Thu</button><button data-v="B">B · Fri</button></span>';
       L.DomEvent.disableClickPropagation(div);
       L.DomEvent.disableScrollPropagation(div);
       return div;
     }
   });
-  map.addControl(new DVarControl());
+  map.addControl(new VarControl());
 
-  const style=document.createElement('style');
-  style.textContent='.leaflet-tooltip.pin{background:#fff;border:1px solid #e7ddcb;border-radius:7px;font-weight:600;font-size:11px;color:#21201c;box-shadow:0 2px 8px rgba(0,0,0,.12);padding:2px 7px} .leaflet-tooltip.pin::before{display:none}';
-  document.head.appendChild(style);
+  const st=document.createElement('style');
+  st.textContent='.leaflet-tooltip.pin{background:#fff;border:1px solid #e7ddcb;border-radius:7px;font-weight:600;font-size:11px;color:#21201c;box-shadow:0 2px 8px rgba(0,0,0,.12);padding:2px 7px} .leaflet-tooltip.pin.sleep{border-color:var(--sun);font-weight:700} .leaflet-tooltip.pin::before{display:none}';
+  document.head.appendChild(st);
 
-  map.fitBounds(L.latLngBounds([P.calais,P.avignon,P.monaco,P.rovinj,P.kecskemet,P.basel]).pad(0.1));
+  renderVariant('A');
+  map.fitBounds(L.latLngBounds([P.calais,P.stuttgart,P.predazzo,P.ljubljana,P.kecskemet]).pad(0.12));
 
-  // D variant bed-pin data (three departure variants; route line stays as-is)
-  const D_VARIANTS = {
-    D1: {
-      beds: [
-        {name:'Châlons',    ll:P.chalons,   tip:'Châlons — Tue 14 night',                      dbl:false, maybe:false},
-        {name:'Ulm',        ll:P.ulm,       tip:'Ulm — Wed 15 night',                           dbl:false, maybe:false},
-        {name:'Predazzo',   ll:P.predazzo,  tip:'Predazzo — Thu 16 + Fri 17 (coaster day)',     dbl:true,  maybe:false},
-        {name:'Ljubljana',  ll:P.ljubljana, tip:'Ljubljana — Sat 18 night',                     dbl:false, maybe:false}
-      ],
-      base: 'arrive Kecskemét Sun 19'
-    },
-    D2: {
-      beds: [
-        {name:'Calais/Coquelles', ll:P.calais,   tip:'Calais/Coquelles — Thu 16 night (D2 night 1 — Cité Europe hotel by the terminal)', dbl:false, maybe:false},
-        {name:'Stuttgart',        ll:P.stuttgart, tip:'Stuttgart — Fri 17 night',                                                          dbl:false, maybe:false},
-        {name:'Predazzo',         ll:P.predazzo,  tip:'Predazzo — Sat 18 + Sun 19 (coaster day)',                                         dbl:true,  maybe:false},
-        {name:'Riva del Garda',   ll:P.riva,      tip:'optional Garda night (Sun) — swaps 2nd Predazzo night',                            dbl:false, maybe:true},
-        {name:'Ljubljana',        ll:P.ljubljana, tip:'Ljubljana — Mon 20 night',                                                          dbl:false, maybe:false}
-      ],
-      base: 'arrive Kecskemét Tue 21'
-    },
-    D3: {
-      beds: [
-        {name:'Châlons',   ll:P.chalons,   tip:'Châlons — Fri 17 night',    dbl:false, maybe:false},
-        {name:'Ulm',       ll:P.ulm,       tip:'Ulm — Sat 18 night',        dbl:false, maybe:false},
-        {name:'Predazzo',  ll:P.predazzo,  tip:'Predazzo — Sun 19 night',   dbl:false, maybe:false},
-        {name:'Ljubljana', ll:P.ljubljana, tip:'Ljubljana — Mon 20 night',  dbl:false, maybe:false}
-      ],
-      base: 'arrive Kecskemét Tue 21'
-    }
-  };
-
-  // IDs of D bed markers so we can remove them selectively
-  let _dBedLayers = [];
-
-  function renderDVariantPins(variant) {
-    // Remove previous D bed markers only
-    _dBedLayers.forEach(l => routeD.removeLayer(l));
-    _dBedLayers = [];
-
-    const col = R.D.color;
-    const vdata = D_VARIANTS[variant];
-
-    vdata.beds.forEach(b => {
-      const pinCol = b.maybe ? '#e8743b' : col;
-      const pinIcon = b.maybe ? '🛏?' : '🛏';
-      const ttClass = 'pin sleep' + (b.maybe ? ' maybe' : '');
-      const marker = L.marker(b.ll, {
-        icon: L.divIcon({className:'', html:`<div class="bedpin" style="border-color:${pinCol}">${pinIcon}</div>`, iconSize:[24,24], iconAnchor:[12,12]}),
-        zIndexOffset: 600
-      });
-      marker.bindTooltip(pinIcon + ' ' + b.tip + (b.dbl ? ' ×2' : ''), {permanent:true, direction:'top', className:ttClass, offset:[0,-12]});
-      routeD.addLayer(marker);
-      _dBedLayers.push(marker);
-    });
-
-    // Base arrival label at Kecskemét (small circle, not a bed pin)
-    const baseMarker = L.circleMarker(P.kecskemet, {radius:7, color:'#fff', weight:2, fillColor:R.D.color, fillOpacity:1})
-      .bindTooltip(vdata.base, {permanent:true, direction:'top', className:'pin', offset:[0,-6]});
-    routeD.addLayer(baseMarker);
-    _dBedLayers.push(baseMarker);
-  }
-
-  // Initial render with D2 (default)
-  // First remove the static D bed markers drawn in the generic loop above
-  // (they were added as part of the groups[D] generic rendering)
-  // Re-initialise D group markers: remove all existing D markers, re-add non-bed ones, then add variant beds
-  (function initDVariant() {
-    // The generic groups loop already added: route polyline, bed markers, and waypoint circles for D.
-    // We need to strip out only the bed (divIcon) markers; waypoint circles and the polyline stay.
-    const toRemove = [];
-    routeD.eachLayer(l => {
-      if (l instanceof L.Marker) toRemove.push(l); // all L.Marker are bed pins (divIcon)
-    });
-    toRemove.forEach(l => routeD.removeLayer(l));
-    renderDVariantPins('D2');
-  })();
-
-  // Segmented control wiring
-  const dCtrl = document.getElementById('dVariantCtrl');
-  if (dCtrl) {
-    dCtrl.addEventListener('click', e => {
-      const btn = e.target.closest('button[data-v]');
-      if (!btn) return;
-      dCtrl.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  const vc=document.getElementById('varCtrl');
+  if(vc){
+    vc.addEventListener('click',e=>{
+      const btn=e.target.closest('button[data-v]'); if(!btn) return;
+      vc.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-      const v = btn.dataset.v;
-      renderDVariantPins(v);
-      // If route D overlay was toggled off, re-add it so the new pins are visible
-      if (!map.hasLayer(routeD)) map.addLayer(routeD);
+      renderVariant(btn.dataset.v);
     });
   }
-
-  // Re-render D variant pins when the D overlay is toggled back on
-  map.on('overlayadd', e => {
-    if (e.layer === routeD) {
-      const activeBtn = dCtrl && dCtrl.querySelector('button.active');
-      renderDVariantPins(activeBtn ? activeBtn.dataset.v : 'D2');
-    }
-  });
 </script>
 </body>
 </html>
