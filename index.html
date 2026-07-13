@@ -111,6 +111,7 @@
   .d-variant-ctrl button:last-child{border-right:none}
   .d-variant-ctrl button[data-v="A"].active{background:var(--plan-a);color:#fff}
   .d-variant-ctrl button[data-v="B"].active{background:var(--plan-b);color:#fff}
+  .d-variant-ctrl button[data-v="C"].active{background:#7d5ba6;color:#fff}
   .d-variant-ctrl button:hover:not(.active){background:#f2ede4}
 
   .blacksat{margin-top:24px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);
@@ -557,7 +558,7 @@
     kormend:[47.01,16.60], veszprem:[47.09,17.91], csopak:[46.97,17.92], kecskemet:[46.91,19.69],
     basel:[47.56,7.59], zurich:[47.37,8.54], walensee:[47.12,9.10], feldkirch:[47.24,9.60],
     innsbruck:[47.27,11.39], brenner:[47.00,11.51], garda:[45.88,10.84],
-    bressanone:[46.72,11.66], lienz:[46.83,12.77], villach:[46.61,13.85]
+    bressanone:[46.72,11.66], lienz:[46.83,12.77], villach:[46.61,13.85], faakersee:[46.57,13.93]
   };
 
   // Two routes: A = Option 1 German S7 direct, B = Option 2 Zero-Germany Grand Alpine
@@ -590,6 +591,21 @@
         {name:'Innsbruck',ll:P.innsbruck, tip:'Hall in Tirol (nr Innsbruck) — Wed 22 night, free parking'},
         {name:'Villach',  ll:P.villach,   tip:'Villach — Thu 23 night (out of Italy pre-red-Friday)'}
       ]
+    },
+    C: {
+      color: '#7d5ba6',
+      spine: [
+        ['Calais',P.calais],['Reims',P.reims],['Nancy',P.nancy],['Basel',P.basel],
+        ['Zürich',P.zurich],['Walensee ⚠️',P.walensee],['Feldkirch',P.feldkirch],
+        ['Innsbruck',P.innsbruck],['Brenner ⚠️',P.brenner],['Bressanone',P.bressanone],
+        ['Lienz',P.lienz],['Faaker See',P.faakersee],['Graz',P.graz],
+        ['Körmend',P.kormend],['Veszprém',P.veszprem],['Csopak',P.csopak]
+      ],
+      beds: [
+        {name:'Nancy',     ll:P.nancy,     tip:'Nancy — Tue 21 night'},
+        {name:'Innsbruck', ll:P.innsbruck, tip:'Hall in Tirol — Wed 22 night'},
+        {name:'Faaker See',ll:P.faakersee, tip:'Faaker See (Drobollach) — Thu 23 night: turquoise lake, 102m slide — BOOK EARLY (Kirchtag)'}
+      ]
     }
   };
   const SIGHT = {
@@ -615,6 +631,7 @@
     'Brenner ⚠️':'Lueg bridge: 1 lane baseline, +20–60 min Thu AM — leave Innsbruck by 08:00 · A13 €12.50',
     'Lake Garda':'swim + lunch stop (~3h) — north end (Riva/Torbole/Malcesine)',
     'Bressanone':'exit A22 → SS49 Val Pusteria (works are night-only)',
+    'Faaker See':'2-Lite overnight — turquoise lake, Strandbad Drobollach (free, 102m slide, to 20:30)',
     'Lienz':'B100 → Villach — the calm way east',
     'Villach':'Option 2 overnight — Villacher Kirchtag starts 26 Jul; if dates slip use Klagenfurt',
     'Kecskemét':'the base — from Mon 27'
@@ -673,7 +690,7 @@
     onAdd(){
       const div=L.DomUtil.create('div','d-variant-map-ctrl');
       div.innerHTML='<span class="dv-label">Route</span><span class="d-variant-ctrl" id="varCtrl">'+
-        '<button data-v="A" class="active">1 · German S7</button><button data-v="B">2 · Alpine 0-DE</button></span>';
+        '<button data-v="A" class="active">1 · German S7</button><button data-v="B">2 · Garda</button><button data-v="C">2-Lite · Faaker</button></span>';
       L.DomEvent.disableClickPropagation(div);
       L.DomEvent.disableScrollPropagation(div);
       return div;
