@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Road to the base — July 2026 Dolomites drive (Option A vs B)</title>
+<title>Road to Csopak — July 2026 drive (Tue 21 dawn, S7 back door)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
     --ink:#21201c; --ink-soft:#56524a; --paper:#fbf7f0; --card:#ffffff;
     --sea:#2d7d9a; --sea-deep:#1c5870; --sun:#e8743b; --sun-soft:#f4a259;
     --olive:#7a8450; --sand:#e9ddc7; --rose:#c45d5d;
-    --rt-a:#c0392b; --rt-b:#e8743b; --rt-c:#2e8b57; --rt-d:#3a6ea5; --rt-e:#7d5ba6;
+    --rt-c:#2e8b57;
     --plan-a:#2e8b57; --plan-b:#3a6ea5;
     --line:#e7ddcb; --shadow:0 1px 2px rgba(33,32,28,.06),0 8px 28px -12px rgba(33,32,28,.18);
   }
@@ -25,7 +25,6 @@
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.1;margin:0}
   a{color:var(--sea-deep)}
 
-  /* Hero */
   .hero{position:relative;overflow:hidden;color:#fff;
     background:linear-gradient(135deg,#1c5870 0%,#2d7d9a 38%,#7a8450 100%)}
   .hero::after{content:"";position:absolute;inset:0;opacity:.13;
@@ -40,7 +39,6 @@
     backdrop-filter:blur(4px);padding:7px 13px;border-radius:999px;font-size:.82rem;font-weight:500}
   .chip b{font-weight:700}
 
-  /* Decision banner */
   .decision-banner{display:flex;gap:18px;align-items:flex-start;
     background:linear-gradient(120deg,#226c45,#2e8b57);color:#fff;
     border-radius:18px;padding:22px 24px;box-shadow:var(--shadow);
@@ -56,7 +54,6 @@
   .sec-head h2{font-size:clamp(1.5rem,3vw,2.1rem)}
   .sec-head p{color:var(--ink-soft);max-width:66ch;margin:.5em 0 0}
 
-  /* Context callouts */
   .notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:26px}
   .note{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 17px;box-shadow:var(--shadow)}
   .note .ic{font-size:1.3rem;line-height:1}
@@ -67,14 +64,12 @@
   .note.heart{border-left:4px solid var(--rose)}
   .note.lock{border-left:4px solid var(--sea)}
 
-  /* Map */
   #map{height:480px;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow);margin-top:24px;z-index:0}
   .maplead{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:14px;font-size:.85rem;color:var(--ink-soft)}
   .lg{display:inline-flex;align-items:center;gap:7px}
   .swatch{width:26px;height:5px;border-radius:3px;display:inline-block}
   .leaflet-container{font-family:'Inter',sans-serif}
 
-  /* Comparison table */
   .costs{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
   .cnote{font-size:.8rem;color:var(--ink-soft);margin-top:14px}
   .acc{width:100%;border-collapse:collapse;font-size:.86rem;margin:8px 0 6px}
@@ -88,7 +83,6 @@
   .booked-tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
     background:#e8f3ec;color:#226c45;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle}
 
-  /* Journey timelines */
   .itin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:24px}
   .tl-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow)}
   .tl-card.pa{border-top:5px solid var(--plan-a)}
@@ -119,7 +113,6 @@
   .d-variant-ctrl button[data-v="B"].active{background:var(--plan-b);color:#fff}
   .d-variant-ctrl button:hover:not(.active){background:#f2ede4}
 
-  /* Black Saturday explainer */
   .blacksat{margin-top:24px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ink);
     border-radius:16px;padding:22px 24px;box-shadow:var(--shadow)}
   .bs-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
@@ -133,7 +126,6 @@
   .bs-why{margin:18px 0 0;font-size:.88rem;background:var(--paper);border-radius:11px;padding:13px 15px;
     border-left:3px solid var(--sea)}
 
-  /* Verdict */
   .verdict{margin-top:30px;border-radius:20px;padding:30px;color:#fff;
     background:linear-gradient(120deg,#2e8b57,#1c5870);box-shadow:var(--shadow)}
   .verdict .eyebrow{color:#bfe6cf}
@@ -141,9 +133,7 @@
   .verdict p{opacity:.95;max-width:72ch;margin:0 0 10px}
   .verdict .alt{font-size:.9rem;opacity:.9}
 
-  /* Booking */
   .booking{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
-  .ri-h{font-size:1.12rem}
   .bk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:14px}
   .bk-col h4{font-family:'Inter';font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
     margin:0 0 8px;padding-bottom:5px;border-bottom:2px solid var(--line)}
@@ -163,19 +153,20 @@
 
 <header class="hero">
   <div class="wrap">
-    <p class="kicker">Summer 2026 · the long drive to the base</p>
-    <h1>Road to the base — the Dolomites line</h1>
-    <p class="lede"><b>THE PLAN (locked 13 Jul): stay the glorious UK week, cross Tuesday dawn, enter Hungary
-      the back way.</b> Csopak, Friday 24 July (booked) is the only hard target — and the route research found
-      a gem: the brand-new <b>S7 expressway</b> enters Hungary from Graz and skips Vienna, Budapest, the M1
-      roadworks and the <b>Hungarian F1 GP traffic</b> in one move. Three relaxed driving days, Balaton by
-      Thursday afternoon, a buffer night, then check-in.</p>
+    <p class="kicker">Summer 2026 · the long drive to the lake</p>
+    <h1>Road to Csopak — in through the back door</h1>
+    <p class="lede"><b>THE PLAN (locked 13 Jul, after 5-agent traffic research):</b> soak the glorious UK week,
+      cross <b>Tuesday 21 at dawn</b>, ride the freshly-finished A6 to Nuremberg, slip over the Pyhrn to Graz —
+      then enter Hungary on the <b>brand-new S7 expressway</b>, skipping Vienna, Budapest, the M1 roadworks and
+      the <b>Hungarian F1 GP traffic</b> in one move. Balaton by Thursday afternoon; <b>Villa Vanilla, Csopak,
+      Friday 24 (booked)</b>. An <b>Italian variant</b> (Innsbruck + Lake Garda) is on the table below — +1 night,
+      +4.5h driving.</p>
     <div class="chips">
-      <span class="chip">✅ <b>Locked 13 Jul:</b> UK week (hot tub) → <b>cross Tue 21 ~07:30</b></span>
+      <span class="chip">✅ <b>Locked:</b> UK week (hot tub) → cross <b>Tue 21 ~07:30</b></span>
       <span class="chip">🛣 A6 → Nuremberg → Pyhrn → Graz → <b>new S7 into Hungary</b></span>
-      <span class="chip">🏎 Dodges Vienna, Budapest, M1 works + <b>F1 GP traffic (24–26)</b></span>
-      <span class="chip">🎯 Balaton Thu PM · <b>Csopak Fri 24 (booked)</b> · return Tue 1 Sep</span>
-      <span class="chip">⚠️ Amend Le Shuttle + buy AT/HU e-vignettes <b>now</b></span>
+      <span class="chip">🏎 Dodges Vienna, Budapest, M1 works + <b>F1 GP (24–26)</b></span>
+      <span class="chip">🇮🇹 Variant: Innsbruck lunch + <b>Garda night</b> (+1 night, +4.5h)</span>
+      <span class="chip">🎯 <b>Csopak Fri 24 (booked)</b> · return Tue 1 Sep</span>
     </div>
   </div>
 </header>
@@ -185,24 +176,16 @@
     <div class="decision-banner">
       <div class="db-flag">✅</div>
       <div class="db-body">
-        <p class="db-eyebrow">THE PLAN · locked 13 Jul eve after 5-agent traffic research · supersedes everything below</p>
-        <h2 class="db-h">Tue 21 dawn → A6 → Nuremberg → Graz → S7 → Balaton Thu → Csopak Fri 24.</h2>
+        <p class="db-eyebrow">The plan · locked 13 Jul · one open choice: plain or Italian</p>
+        <h2 class="db-h">Tue 21 dawn → Nuremberg → Graz → S7 → Balaton Thu → Csopak Fri 24.</h2>
         <p class="db-p"><b>Mon 20 = home</b> — London's best day of the fortnight (28.7°, clear) and the worst
-          driving day (NRW holiday day-1 + Monday lorry-return surge). <b>Tue 21 = the calmest corridor day of
-          the week</b>: leave ~05:15 (M25 clear by 6:30), cross ~07:30 (FlexiPlus purple lane + EU lane on HU
-          passports — EES is a UK-passport problem we skip), Luxembourg fuel, then the <b>A6 Heilbronn–Nuremberg</b>
-          (its decade of roadworks finished Dec 2025; dodges the Cologne freight funnel and Frankfurt's 3-lane
-          closure that opens Wed) → overnight Nuremberg. <b>Wed 22:</b> Regensburg→Passau at midday (the one
-          shared roadwork pinch) → Wels → A9 Pyhrn → <b>Graz</b> by ~16:00 — 16:30 UK meeting from the hotel.
-          <b>Thu 23:</b> the unlock — the <b>brand-new S7 → Heiligenkreuz → M80 → road 8 → Veszprém</b> drops us
-          on the Balaton north shore by early afternoon, <b>skipping Vienna, Budapest, the M1 roadworks
-          (2+1+1 contraflow to Sep), the M0 ring AND the Hungarian F1 GP traffic</b> (Hungaroring 24–26 Jul —
-          it slams the classic northern route from Thu). Swim, sleep near Veszprém/Balatonfüred.
-          <b>Fri 24: Villa Vanilla, Csopak — hard target hit with a day's slack.</b> Mon 27 → Kecskemét base.
-          <br><b>Actions: amend Le Shuttle → Tue 21 early AM now (the Thu-16 leg otherwise expires Thursday) ·
-          buy AT e-vignette + HU e-matrica now (plate-linked digital) · API with HU passport details by Mon eve ·
-          leave: Mon+Tue booked, add Wed+Thu.</b> No Slovenian/Italian tolls; Stuttgart sticker moot; pick a
-          Nuremberg hotel outside the Umweltzone.</p>
+          driving day (NRW holiday day-1 + the Monday lorry-return surge). <b>Tue 21 = the calmest corridor day
+          of the week</b> — between the NRW wave (peaked 17–19) and the BW/Bavaria/F1 waves (from the 24th).
+          The route dodges every researched trap: Cologne's freight funnel, Frankfurt's 3-lane closure (opens
+          Wed 22), the Vienna ring, the M1's 2+1+1 contraflow (+30–60 min, runs to Sep), the M0, and the
+          <b>F1 arrival traffic that slams the classic route from Thu 23</b>. On HU passports the EES chaos at
+          the tunnel isn't ours — EU lane, done. <b>Open choice:</b> the plain 3-day run (buffer day at Balaton)
+          or the <b>Italian variant</b> — Innsbruck lunch + a Lake Garda night — for +1 hotel and a tighter Friday.</p>
       </div>
     </div>
   </div>
@@ -211,35 +194,37 @@
 <section id="context">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Where things stand</p>
+      <p class="eyebrow">Why this shape</p>
       <h2>The plan, in four facts</h2>
-      <p>The car has to be at the base for the 7-week stay (hiring there ≈ £2–3k), so driving is settled. Leave is
-        just two days — <b>Mon 20 + Tue 21</b> — either option; base by Tue 21 (Wed 22 stretch).</p>
+      <p>Csopak (booked Fri 24–27) is the only hard target. Leave is a non-issue by decision — Mon+Tue booked,
+        Wed+Thu added or work-lite. Everything else was optimised from real traffic data (13 Jul research).</p>
     </div>
     <div class="notes">
-      <div class="note lock">
-        <div class="ic">🗓</div>
-        <h4>Leave is only two days</h4>
-        <p>Both options cost the same: <b>Mon 20 + Tue 21</b>. <b>Fri 17 is a free non-working day</b> (Israel-off
-          Friday + a half day), so it never costs leave.</p>
+      <div class="note good">
+        <div class="ic">🏎</div>
+        <h4>The F1 discovery</h4>
+        <p><b>Hungarian GP, Hungaroring, 24–26 Jul.</b> Arrival traffic hits A4 Nickelsdorf → M1 Budapest from
+          <b>Thu 23</b> — poisoning the classic northern entry exactly on our dates. The S7 southern entry never
+          touches it.</p>
+      </div>
+      <div class="note good">
+        <div class="ic">🆕</div>
+        <h4>The S7 back door</h4>
+        <p>Opened Sep 2025: <b>A2 (Graz) → S7 → Heiligenkreuz → M80 → road 8 → Veszprém</b> — skips Vienna,
+          Budapest, the M1 works and the M0 entirely. Csopak sits 20 min below Veszprém. Built for this trip.</p>
       </div>
       <div class="note lock">
-        <div class="ic">🏔</div>
-        <h4>No Munich — cross via the Fernpass</h4>
-        <p>The Alps are crossed on the <b>Fernpass</b> (west of Munich), not the A8. Skips the accident-corridor
-          hub; the crossing stays off Black Saturday either way.</p>
+        <div class="ic">🛂</div>
+        <h4>EES is not our problem</h4>
+        <p>The EU border system is causing chaos for <b>UK passports</b>. We cross on the <b>Hungarian
+          passports</b>: EU lane, no biometrics, 60–90 min door-to-boarding at dawn. UK passports ride along
+          for UK re-entry.</p>
       </div>
       <div class="note heart">
-        <div class="ic">🛷</div>
-        <h4>What the kids get</h4>
-        <p><b>Alpine Coaster Gardonè</b> at Predazzo — Erik's confirmed favourite — plus <b>Lago di Carezza</b>,
-          Ella's turquoise roadside lake. A gets a full Sunday there; B a rushed Monday afternoon.</p>
-      </div>
-      <div class="note heart">
-        <div class="ic">🛟</div>
-        <h4>Same finish either way</h4>
-        <p>Base by <b>Tue 21</b>, then settle before Csopak Fri 24. Return is a separate fast direct 2-day drive,
-          <b>Tue 1 Sep</b>.</p>
+        <div class="ic">🏡</div>
+        <h4>The UK week is the holiday too</h4>
+        <p>Barnet: dry every day, 26–30°, hot tub. Ella gets her real last day (Fri 1:30). Erik — done with
+          school after Monday's graduation — gets his dream home week. We leave rested, not fleeing.</p>
       </div>
     </div>
   </div>
@@ -249,52 +234,14 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">The route</p>
-      <h2>One line through six countries</h2>
-      <p>FR · DE · AT · IT · SI · HU. Folkestone → Calais → Stuttgart/Ulm → <b>Fernpass/Brenner</b> →
-        <b>Predazzo (Dolomites)</b> → Villach/Ljubljana → <b>Kecskemét base</b> → Csopak. Use the
-        <b>A / B</b> switch (top-left of the map) to see where you sleep in each. <b>🛏 = overnight.</b></p>
+      <h2>Calais → Csopak, the low-drama line</h2>
+      <p>FR · BE/LU · DE · AT · (IT) · HU. Toggle <b>Plan / Italian</b> (top-left of the map) to compare the
+        locked plan with the Garda variant. <b>🛏 = overnight.</b></p>
     </div>
     <div id="map"></div>
     <div class="maplead">
-      <span class="lg"><span class="swatch" style="background:var(--plan-a)"></span> Option A — cross Thu eve (booked) · 4 nights (Calais, Stuttgart, Füssen, Predazzo)</span>
-      <span class="lg"><span class="swatch" style="background:var(--plan-b)"></span> Option B — cross Sun morning · 2 nights (Stuttgart, Predazzo)</span>
-    </div>
-  </div>
-</section>
-
-<section id="fork" style="padding-top:6px">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">The choice</p>
-      <h2>Option A vs Option B — it's just when we cross</h2>
-      <p>Same route, same base-by-Tue-21 target, same <b>Mon 20 + Tue 21</b> leave. The FlexiPlus ticket lets us
-        cross <b>Thursday evening</b> (booked) or <b>Sunday morning</b> — and that decides the shape of the drive.</p>
-    </div>
-    <div class="costs">
-      <table class="acc">
-        <thead>
-          <tr>
-            <th></th>
-            <th class="pa h-a">Option A — cross Thu eve <span class="booked-tag">booked · rec</span></th>
-            <th class="pb h-b">Option B — cross Sun morning</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Leave home</td><td class="pa">Thu 16 ~18:00 → Le Shuttle 20:54</td><td class="pb">Sun 19 ~07:00 → Le Shuttle AM <small>(change ticket)</small></td></tr>
-          <tr><td>Nights on the road</td><td class="pa"><b>4</b> — Calais, Stuttgart, Füssen, Predazzo</td><td class="pb"><b>2</b> — Stuttgart, Predazzo</td></tr>
-          <tr><td>Time at home first</td><td class="pa">leave Thu eve — <b>misses</b> the Fri 17 leavers' assembly</td><td class="pb"><b>home for Erik's Fri 17 leavers' assembly</b> + the weekend</td></tr>
-          <tr><td>Alpine crossing</td><td class="pa">Sun 19 — lorry-free</td><td class="pb">Mon 20 — weekday AM</td></tr>
-          <tr><td>Dolomites time</td><td class="pa"><b>full Sunday</b> at Predazzo</td><td class="pb">Monday afternoon (rushed)</td></tr>
-          <tr><td>Final leg to base</td><td class="pa">long Mon ~7h <small>(or split via Ljubljana)</small></td><td class="pb"><b>long Tue</b> ~7h, no overnight</td></tr>
-          <tr><td>Arrive base</td><td class="pa"><b>Mon 20</b> — a day of buffer</td><td class="pb">Tue 21 eve — tight</td></tr>
-          <tr><td>Leave days</td><td class="pa">Mon 20 + Tue 21</td><td class="pb">Mon 20 + Tue 21 <small>(same)</small></td></tr>
-          <tr><td>Cost</td><td class="pa">more (4 nights)</td><td class="pb">less (2 nights)</td></tr>
-        </tbody>
-      </table>
-      <p class="cnote"><b>Net:</b> leave is identical, so B's only wins are the extra home weekend and ~2 fewer
-        hotel nights. A spreads the driving out, keeps the Alpine crossing on the calm Sunday, gives a full
-        Dolomites day and a buffer day at base — and it's booked. Pick B only if the home weekend + saving beat
-        the pace and buffer.</p>
+      <span class="lg"><span class="swatch" style="background:var(--plan-a)"></span> THE PLAN — 3 nights (Nuremberg, Graz, Balaton) · Csopak Fri with a buffer day</span>
+      <span class="lg"><span class="swatch" style="background:var(--plan-b)"></span> Italian variant — 4 nights (+Ulm, Garda) · Innsbruck lunch · Csopak Fri, tighter</span>
     </div>
   </div>
 </section>
@@ -304,46 +251,69 @@
     <div class="sec-head">
       <p class="eyebrow">Day by day</p>
       <h2>Drive → see → sleep</h2>
-      <p>The two options, side by side. 🚗 = a driving leg; 🛏 = overnight. Both end at the base by Tue 21, then
-        settle, then Csopak 24 Jul.</p>
+      <p>🚗 = a driving leg; 🛏 = overnight. Both versions cross Tue 21 at dawn and end at Villa Vanilla on
+        Friday — the Italian variant trades the Balaton buffer day for a lake-Garda evening and an Innsbruck lunch.</p>
     </div>
     <div class="itin-grid">
 
       <div class="tl-card pa">
-        <div class="tl-h"><span class="tl-key" style="background:var(--plan-a)">A</span><span class="tl-name">Option A — cross Thu eve (booked)</span></div>
-        <div class="tl-tot">4 nights · relaxed · arrive base Mon 20 · leave Mon 20 + Tue 21</div>
+        <div class="tl-h"><span class="tl-key" style="background:var(--plan-a)">P</span><span class="tl-name">THE PLAN — S7 direct</span></div>
+        <div class="tl-tot">3 nights · ~17h driving · buffer day at Balaton · arrive Csopak Fri AM</div>
         <ul class="tl">
           <li class="stop tip"><span class="nm">🏁 London</span></li>
-          <li class="drive">🚗 work day → leave home ~18:00 → Le Shuttle 20:54 (~0.5h)</li>
-          <li class="stop sleep"><span class="nm"><span class="day">Thu 16</span>🛏 Calais</span><small>check-in closes 19:54 · into Calais ~23:29 CET</small></li>
-          <li class="drive long">🚗 ~8h</li>
-          <li class="stop sleep"><span class="nm"><span class="day">Fri 17</span>🛏 Stuttgart</span><small>free non-working day — no leave · German autobahn NE transit</small></li>
-          <li class="drive">🚗 ~3h</li>
-          <li class="stop sleep"><span class="nm"><span class="day">Sat 18</span>🛏 Füssen</span><small>⚫ Black Saturday OFF the Brenner — Neuschwanstein / lakes PM</small></li>
-          <li class="drive">🚗 Fernpass + Brenner (~3h)</li>
-          <li class="stop sleep"><span class="nm"><span class="day">Sun 19</span>🛏 Predazzo</span><small>lorry-free Sunday crossing; coaster + Lago di Carezza PM</small></li>
-          <li class="drive long">🚗 ~7h (long final leg, no overnight)</li>
-          <li class="stop tip"><span class="nm"><span class="day">Mon 20</span>🏁 Kecskemét base</span><small>via Villach/Ljubljana · leave day 1 · arrive eve</small></li>
-          <li class="stop pass"><span class="nm"><span class="day">Tue 21</span>rest at base (leave day 2) → settle Wed–Thu → Csopak Fri 24</span></li>
+          <li class="stop pass"><span class="nm"><span class="day">Mon 20</span>home — London's best day (28.7° clear), pack, early night</span></li>
+          <li class="drive">🚗 leave ~05:15 · M25 clear by 6:30 · Le Shuttle ~07:30 (EU lane)</li>
+          <li class="drive long">🚗 Calais → Luxembourg (cheap fuel) → A6 (~8h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Tue 21</span>🛏 Nuremberg area</span><small>calmest corridor day · A6's roadworks finished Dec 2025 · hotel outside the Umweltzone</small></li>
+          <li class="drive">🚗 Regensburg→Passau midday (the one pinch) → Wels → A9 Pyhrn (~5.5h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Wed 22</span>🛏 Graz</span><small>arrive ~16:00 · <b>16:30 UK meeting from the hotel (17:30 CET)</b></small></li>
+          <li class="drive">🚗 S7 → Heiligenkreuz → M80 → road 8 → Veszprém (~3.5h, near-zero traffic)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Thu 23</span>🛏 Balaton north shore</span><small>arrive early PM — swim, exhale · o/n Veszprém/Balatonfüred</small></li>
+          <li class="stop tip"><span class="nm"><span class="day">Fri 24</span>🎯 Villa Vanilla, Csopak</span><small>check-in with a day's slack behind us · Mon 27 → Kecskemét base</small></li>
         </ul>
       </div>
 
       <div class="tl-card pb">
-        <div class="tl-h"><span class="tl-key" style="background:var(--plan-b)">B</span><span class="tl-name">Option B — cross Sun morning</span></div>
-        <div class="tl-tot">2 nights · extra weekend home · arrive base Tue 21 · leave Mon 20 + Tue 21</div>
+        <div class="tl-h"><span class="tl-key" style="background:var(--plan-b)">I</span><span class="tl-name">Italian variant — Innsbruck + Garda</span></div>
+        <div class="tl-tot">4 nights · ~21.5h driving · Garda evening + morning · arrive Csopak Fri PM</div>
         <ul class="tl">
           <li class="stop tip"><span class="nm">🏁 London</span></li>
-          <li class="stop pass"><span class="nm"><span class="day">Thu–Sat 16–18</span>home — Thu work, <b>Fri 17 Erik's Y6 leavers' assembly</b>, Sat home</span></li>
-          <li class="drive long">🚗 leave ~07:00 → Le Shuttle AM → Calais → drive (~8h)</li>
-          <li class="stop sleep"><span class="nm"><span class="day">Sun 19</span>🛏 Stuttgart</span><small>cross in daylight; lorry-free Sunday = clear miles</small></li>
-          <li class="drive long">🚗 Fernpass + Brenner (~6h)</li>
-          <li class="stop sleep"><span class="nm"><span class="day">Mon 20</span>🛏 Predazzo</span><small>weekday-AM crossing; coaster + Carezza PM · leave day 1</small></li>
-          <li class="drive long">🚗 ~7h (long final leg, no overnight)</li>
-          <li class="stop tip"><span class="nm"><span class="day">Tue 21</span>🏁 Kecskemét base</span><small>via Villach/Ljubljana · leave day 2 · arrive eve</small></li>
-          <li class="stop pass"><span class="nm"><span class="day">Wed 22</span>⏰ 16:30 UK work meeting (soft — dial in from a hotel if Tue runs over) → settle → Csopak Fri 24</span></li>
+          <li class="stop pass"><span class="nm"><span class="day">Mon 20</span>home — same glorious Monday</span></li>
+          <li class="drive long">🚗 same dawn crossing → A6 → A7 south (~7h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Tue 21</span>🛏 Ulm / Rothenburg area</span><small>shorter day 1 — position for the Alps</small></li>
+          <li class="drive">🚗 A7 → Füssen → Fernpass → <b>Innsbruck lunch</b> → Brenner A13/A22 (~5.5–6h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Wed 22</span>🛏 Lake Garda — Lazise/Bardolino</span><small>arrive ~15:00 · <b>16:30 UK meeting from the hotel</b> · evening swim · A22 workless all summer, midweek = Italy's green trough</small></li>
+          <li class="drive long">🚗 Garda AM (SEA LIFE / beach) → depart ~13:00 → Tarvisio → Villach → Graz (~5h)</li>
+          <li class="stop sleep"><span class="nm"><span class="day">Thu 23</span>🛏 Graz</span><small>exits Italy midweek (Fri 24 is a red esodo day — we're already out) · avoids Slovenia's A1 contraflow entirely</small></li>
+          <li class="drive">🚗 S7 → M80 → road 8 → Veszprém → Csopak (~3.5h)</li>
+          <li class="stop tip"><span class="nm"><span class="day">Fri 24</span>🎯 Villa Vanilla, Csopak</span><small>arrive early-mid PM — check-in day, zero slack · Mon 27 → base</small></li>
         </ul>
       </div>
 
+    </div>
+
+    <div class="costs">
+      <table class="acc">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="pa h-a">THE PLAN — S7 direct <span class="booked-tag">default</span></th>
+            <th class="pb h-b">Italian variant — Innsbruck + Garda</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Nights / driving</td><td class="pa"><b>3 nights · ~17h</b></td><td class="pb"><b>4 nights · ~21.5h</b> (+1 hotel ~€200–260, + Brenner/A22 tolls ~€25)</td></tr>
+          <tr><td>What you get</td><td class="pa">buffer day at Balaton (swim Thu PM), lazy Friday check-in</td><td class="pb"><b>Innsbruck lunch + a Garda evening/morning</b> (SEA LIFE for Ella, lake swim), "something Italian" ✓</td></tr>
+          <tr><td>Slack before Csopak</td><td class="pa"><b>a full day</b></td><td class="pb">hours — Friday IS the 3.5h drive-to-check-in</td></tr>
+          <tr><td>Hardest day</td><td class="pa">Tue ~8h</td><td class="pb">Tue ~7h (but 3 consecutive 5–6h days after)</td></tr>
+          <tr><td>Risk notes</td><td class="pa">near-zero — every researched trap dodged</td><td class="pb">midweek-green in Italy (A22 workless; red esodo days are 24–26 — we exit Thu) · Garda hotel booked morning-of €180–260 · Fernpass slow-but-scenic</td></tr>
+        </tbody>
+      </table>
+      <p class="cnote"><b>Net:</b> the Italian variant is genuinely viable — the research's own numbers say so
+        (midweek trough, A22 clear, and exiting via Villach/Graz dodges Slovenia's contraflow that killed the
+        earlier Garda idea). The price is one more hotel, ~4.5 extra driving hours, and losing the buffer day:
+        Friday becomes a drive-to-check-in. Decide by Monday — the crossing and Tue 21 night are identical
+        either way, and even the fork point (Nuremberg vs Ulm) can be left until Tuesday lunchtime.</p>
     </div>
   </div>
 </section>
@@ -351,85 +321,84 @@
 <section id="traps" style="padding-top:6px">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Real data · researched 11 Jul 2026</p>
+      <p class="eyebrow">Real data · researched 13 Jul 2026</p>
       <h2>Traffic, borders &amp; the fine print</h2>
-      <p>The honest read from live sources: <b>traffic does not decide A vs B</b> — both dodge the one thing that
-        really hurts (a Saturday Alpine crossing). Then the border/road traps that <i>will</i> bite if missed.</p>
+      <p>Five research agents, sourced: LeShuttle/EES · German corridors · Austria–Hungary/M1 · traffic-wave
+        calendar · Garda. Full findings in <code>travel/july-drive-agent-research-2026-07-13.md</code>.</p>
     </div>
 
     <div class="blacksat">
-      <div class="bs-head"><span class="bs-ic">🚦</span><h3>Traffic reality check — it's a near-wash</h3></div>
-      <p style="margin:6px 0 0;font-size:.9rem;color:var(--ink-soft)">Neither option is badly exposed; the differences are marginal.</p>
+      <div class="bs-head"><span class="bs-ic">🚦</span><h3>Why Tuesday, and what we're dodging</h3></div>
       <div class="bs-cols">
         <div class="bs-col a">
-          <h4>Where A is marginally better</h4>
-          <p><b>Channel:</b> both Thu 16 &amp; Sun 19 are LeShuttle <b>peak days</b>, but a Thu <b>evening</b> is
-            calmer than a Sun-morning changeover (FlexiPlus hedges both). <b>French roads:</b> A drives
-            Calais→Stuttgart on Fri 17 (lighter); Sat 18 is Bison-Futé <b>red</b> but that's southbound Med, not
-            our NE line.</p>
+          <h4>The week's traffic shape</h4>
+          <p><b>Tue 21 ≈ Wed 22 calmest · Mon 20 moderate (NRW day-1 + Monday lorry-return) · Thu 23 avoid on
+            the northern route (F1 build).</b> NRW's wave crested the 17–19 weekend; BW + Bavaria don't break up
+            until 30 Jul / 3 Aug. The diaspora ("sıla yolu") wave shares the M1 corridor — not our S7 line.</p>
         </div>
         <div class="bs-col b">
-          <h4>Where B is arguably better</h4>
-          <p><b>The Alps:</b> A crosses the Fernpass/Brenner on <b>Sunday</b> — lorry-free, but heavy with holiday
-            <b>cars</b> and the Tyrol side-roads are shut (can't dodge a jam). B crosses <b>Monday</b> — lighter
-            car volume (weekday), though truck-metering runs on the Brenner corridor. Sunday is <b>not</b> clearly
-            the better day.</p>
+          <h4>Dodged by route</h4>
+          <p>Cologne freight funnel (Europe's busiest) · Frankfurt A3 3-lane closure (from Wed 22) · A8
+            Stuttgart–Munich (ADAC's #1 jam corridor) · Vienna ring · <b>M1 2+1+1 contraflow (+30–60 min, to
+            Sep)</b> · M0 ring · Nickelsdorf F1 crush. Remaining pinch: <b>A3 Regensburg→Passau resurfacing —
+            transit midday Wed</b>.</p>
         </div>
       </div>
-      <p class="bs-why"><b>The one hard rule both respect:</b> never cross the Fernpass/Brenner on a Saturday
-        (A = Füssen foothills only that day; B = home). That's also the stop-and-go type behind the family's past
-        rear-end. <span style="opacity:.75">Sources: LeShuttle FlexiPlus peak dates · Bison Futé/Mappy 2026 · ADAC &amp; ÖAMTC Stauprognose.</span></p>
+      <p class="bs-why"><b>The standing rule:</b> stop-and-go congestion + fatigue is the family's accident
+        lever (the past rear-end). This plan's worst exposure is one midday roadwork zone — everything else is
+        free-flowing weekday motorway.</p>
     </div>
 
     <div class="notes">
       <div class="note good">
         <div class="ic">🛂</div>
-        <h4>EES — cross on the Hungarian passports</h4>
-        <p>The EU Entry/Exit System is live (partial at the tunnel, queue risk). <b>EU citizens are exempt</b> →
-          enter Schengen on the <b>HU passports</b> (EU lane, no biometrics); carry UK passports for UK re-entry.</p>
-      </div>
-      <div class="note warn">
-        <div class="ic">🟢</div>
-        <h4>Stuttgart green sticker</h4>
-        <p>Both options overnight in Stuttgart, whose <b>whole-city Umweltzone</b> needs a <b>green Umweltplakette</b>
-          on the windscreen — foreign cars too — or <b>€80 + €25</b>. Buy ahead (~€5–15); the Kodiaq qualifies.</p>
+        <h4>EES — Hungarian passports</h4>
+        <p>EES is live and chaotic <b>for UK passports</b>. Enter Schengen on the <b>HU passports</b> (EU lane,
+          no biometrics, exempt); carry UK passports for UK re-entry. Kids under 12 print-exempt anyway.</p>
       </div>
       <div class="note warn">
         <div class="ic">🎟️</div>
-        <h4>Vignettes — NOT the night before</h4>
-        <p>An <b>Austrian digital</b> vignette is only valid <b>18 days after online purchase</b> (unless waived) —
-          buy it <b>now</b>, or grab a <b>physical sticker at the border</b>. Same care for SI &amp; HU. Fernpass
-          B179 is vignette-free; <b>Brenner (AT A13 + IT A22) is a separate toll</b>.</p>
-      </div>
-      <div class="note lock">
-        <div class="ic">🚧</div>
-        <h4>Fernpass — roadworks, not a blocker</h4>
-        <p>Tunnel approved but built 2027+ (toll not before 2029) — <b>no closure this summer</b>. But Lermoos-tunnel
-          works + a 50 km/h limit mean <b>slowdowns</b> on the B179 on top of the usual jams.</p>
+        <h4>Vignettes — buy NOW, both digital</h4>
+        <p><b>Austria e-vignette</b> (10-day €10.20, plate-linked — buy early; online purchases can carry an
+          18-day activation quirk) + <b>Hungary e-matrica</b> (instant). <b>No Slovenian or Italian vignettes
+          on the main plan</b>; Italian variant pays Brenner A13 + A22 tolls at the gate instead.</p>
       </div>
       <div class="note warn">
-        <div class="ic">🅿️</div>
-        <h4>ZTL — auto-fines</h4>
-        <p>Don't drive into <b>Bolzano</b> or <b>Trento</b> old-town ZTLs (cameras fine you by post). Stay on the
-          bypass; Predazzo/Val di Fiemme is fine.</p>
-      </div>
-      <div class="note good">
         <div class="ic">🚛</div>
-        <h4>2026 HGV bans (verify near the date)</h4>
-        <p><b>Italy:</b> Sat 08:00–16:00, Sun 07:00–22:00. <b>Austria:</b> Alpine-pass weekend limits.
-          <b>Hungary:</b> Sat 15:00 → Sun 22:00. Sundays are best for big motorway miles.</p>
+        <h4>HGV bans — why Monday is worse</h4>
+        <p>AT: Sat 15:00–24:00 + Sun to 22:00 · HU: Sat 15:00 → Sun 22:00. Lorries flood back <b>Monday</b> —
+          one more reason the Tuesday crossing wins.</p>
+      </div>
+      <div class="note lock">
+        <div class="ic">🅿️</div>
+        <h4>Umweltzone / ZTL</h4>
+        <p>Pick a <b>Nuremberg hotel outside the city Umweltzone</b> (or any autobahn-adjacent one). Italian
+          variant: base <b>Lazise/Bardolino</b> — never drive into Sirmione/Limone old towns (camera-fine ZTLs),
+          never drive the Gardesana shore roads end-to-end.</p>
       </div>
       <div class="note lock">
         <div class="ic">🧰</div>
         <h4>EU driving kit</h4>
-        <p><b>UK sticker</b> on the car, hi-vis vest per occupant, warning triangle, headlamp beam deflectors,
-          first-aid kit. Add a <b>Crit'Air</b> sticker only if routing through French ZFE cities (Reims/Metz/Strasbourg).</p>
+        <p>UK sticker, hi-vis per occupant (reachable), warning triangle, beam deflectors, first-aid kit,
+          VE103 in glovebox, licences. Mounjaro cold chain. Sid: Balazs biweekly + chip-door autofeeder ✓.</p>
+      </div>
+      <div class="note good">
+        <div class="ic">⛽</div>
+        <h4>Luxembourg fuel</h4>
+        <p>The A6 corridor passes Luxembourg — cheapest fuel on the route. Fill to the brim on the way through
+          (Tue ~13:00).</p>
       </div>
       <div class="note heart">
-        <div class="ic">🛏</div>
-        <h4>Hotels</h4>
-        <p>A: Calais + Stuttgart + Füssen + Predazzo (refundable). B: Stuttgart + Predazzo.
-          Predazzo free-cancel. Csopak 24–27 booked.</p>
+        <div class="ic">🌦</div>
+        <h4>Weather en route</h4>
+        <p>Next week: Nuremberg/Graz ~19–25° light rain = ideal driving. Garda clears from Tue (27°).
+          Csopak weekend currently ~21–25° with drizzle <i>(day-11 forecast — low confidence, re-check Wed)</i>.</p>
+      </div>
+      <div class="note warn">
+        <div class="ic">↩️</div>
+        <h4>Return leg (Tue 1 Sep) — noted for later</h4>
+        <p>Westbound = where the border queues live (German checks at the AT border; Nickelsdorf westbound
+          jams). Plan the return route + timing in August.</p>
       </div>
     </div>
   </div>
@@ -439,14 +408,13 @@
   <div class="wrap">
     <div class="verdict">
       <p class="eyebrow">The call</p>
-      <h2>Decided: A — the kind choice for Erik</h2>
-      <p>It came down to Erik. Asked in person about the last week of school, he nearly melted down — the
-        uncertainty and social pressure genuinely distress him (ASD/ADHD). So the choice inverted: <b>B wasn't
-        protecting a milestone, it was keeping him in the week that hurts.</b> <b>A spares him all of it</b> —
-        Monday's graduation, then free, calm departure Thursday. Eva &amp; Ella get their goodbye at graduation.</p>
-      <p class="alt"><b>A also happens to be the easy one:</b> already booked (no ticket change), a calmer
-        spread-out drive, full Dolomites day for the coaster, base Mon 20 with a rest day. Same 2 leave days as B,
-        traffic a near-wash — so nothing was traded away. Base Mon 20, leave Mon 20 + Tue 21, Csopak Fri 24.</p>
+      <h2>Plan is locked. One garnish to choose: plain or Italian.</h2>
+      <p><b>The locked spine:</b> UK week → Tue 21 dawn crossing → A6 → Nuremberg → Pyhrn → Graz → S7 →
+        Csopak Fri 24. Every researched trap dodged, meeting handled from Graz, buffer day at the lake.</p>
+      <p class="alt"><b>The Italian garnish:</b> swap Wed–Thu for Innsbruck lunch + a Garda night (Lazise/
+        Bardolino, SEA LIFE for Ella, evening swim) and exit via Villach→Graz. Costs +1 hotel, +4.5h driving,
+        and the Friday buffer. Both end at Villa Vanilla on time. Decide by Monday night — or even Tuesday
+        lunch, since day 1 is identical to Ulm/Nuremberg fork point.</p>
     </div>
   </div>
 </section>
@@ -455,41 +423,40 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Make it happen</p>
-      <h2>What to book / do</h2>
+      <h2>What to do</h2>
     </div>
     <div class="booking">
       <div class="bk-grid">
         <div class="bk-col now">
-          <h4>Now / this week</h4>
+          <h4>NOW (today/tomorrow)</h4>
           <ul class="bk-list">
-            <li><b>Ticket:</b> A = booked (Thu 16 20:54), no change. B = change the Le Shuttle to a Sun 19 AM service (FlexiPlus — free; price any delta).</li>
-            <li><b>API — mandatory:</b> complete Advance Passenger Info for all passengers <b>≥24h before travel</b> (by Wed 15 ~20:54 for A). No API = no boarding.</li>
-            <li><b>Austrian vignette NOW</b> (digital = 18-day validity delay) — or buy a physical sticker at the border.</li>
-            <li><b>Stuttgart green Umweltplakette</b> — order the windscreen sticker (~€5–15) before travel.</li>
-            <li><b>Leave:</b> Mon 20 + Tue 21 (both options) — submit.</li>
+            <li><b>Amend Le Shuttle outward → Tue 21 early AM</b> (the Thu-16 leg otherwise EXPIRES Thu 23:59).</li>
+            <li><b>Buy AT e-vignette + HU e-matrica</b> (plate-linked digital).</li>
+            <li><b>Leave:</b> Mon+Tue booked — add Wed 22 + Thu 23 (or declare work-lite).</li>
           </ul>
         </div>
         <div class="bk-col t2">
-          <h4>T-2 weeks</h4>
+          <h4>Mon 20</h4>
           <ul class="bk-list">
-            <li>A: Calais + Stuttgart + Füssen — refundable.</li>
-            <li>B: Stuttgart — refundable.</li>
-            <li>Predazzo free-cancel (both).</li>
+            <li><b>API with HU passport details</b> (≥24h before the crossing).</li>
+            <li>Pack the car, hot tub, early night. Book Tue hotel (Nuremberg band / Ulm if Italian).</li>
+            <li>Optional: re-check forecast + pick plain vs Italian.</li>
           </ul>
         </div>
         <div class="bk-col road">
           <h4>On the road</h4>
           <ul class="bk-list">
-            <li>Vignettes AT / SI / HU night-before-border.</li>
-            <li>Gardonè coaster is walk-up.</li>
+            <li>Hotels ad-hoc, day-of (Garda: book morning-of, €180–260).</li>
+            <li>Luxembourg fuel Tue · Passau pinch midday Wed.</li>
+            <li>Live traffic: MKIF (M1), ASFINAG, autobahn.de, InfoViaggiando (IT).</li>
           </ul>
         </div>
         <div class="bk-col done">
-          <h4>Done</h4>
+          <h4>Done / fixed</h4>
           <ul class="bk-list">
-            <li>Le Shuttle 17034554 — booked Thu 16 Jul 20:54, return Tue 1 Sep, £658 ✓</li>
-            <li>Csopak 24–27 booked ✓</li>
-            <li><b>Passports:</b> dual UK/HU — enter Schengen on <b>HU</b> (EES-exempt, EU lane), UK for UK re-entry; check HU expiries.</li>
+            <li>Le Shuttle 17034554 FlexiPlus — return Tue 1 Sep 16:36 ✓</li>
+            <li>Csopak: Villa Vanilla Fri 24–27 ✓ · then Kecskemét base</li>
+            <li>Sid summer cover ✓ · Erik done after Mon graduation ✓ · Ella's last day Fri ✓</li>
           </ul>
         </div>
       </div>
@@ -499,14 +466,14 @@
 
 <footer>
   <div class="wrap">
-    Updated 13 Jul 2026 (eve) · PLAN LOCKED: Tue 21 dawn crossing → A6/Nuremberg → Pyhrn/Graz → S7 → Balaton Thu → Csopak Fri 24 (banner above = current; A/B fork + Dolomites maps below = historical record) · 5-agent research 13 Jul: LeShuttle/EES · German corridors · M1/S7 Hungary · traffic waves + F1 · Garda fallback — details in <code>travel/july-drive-agent-research-2026-07-13.md</code> ·
+    Updated 13 Jul 2026 (eve) · PLAN LOCKED: Tue 21 dawn → A6/Nuremberg → Pyhrn/Graz → S7 → Balaton Thu → Csopak Fri 24 · Italian (Innsbruck+Garda) variant documented · 5-agent research in <code>travel/july-drive-agent-research-2026-07-13.md</code> ·
     map © OpenStreetMap contributors, CARTO, Leaflet · routing © OSRM
   </div>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
-  const map = L.map('map',{scrollWheelZoom:false}).setView([48.5,10.5],5);
+  const map = L.map('map',{scrollWheelZoom:false}).setView([48.2,11.5],5);
   const streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{
     attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
   }).addTo(map);
@@ -517,102 +484,117 @@
 
   const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   const P = {
-    calais:[50.95,1.86], stuttgart:[48.78,9.18], ulm:[48.40,9.99], fussen:[47.57,10.70],
-    fernpass:[47.36,10.83], brenner:[47.00,11.51], bolzano:[46.50,11.35], predazzo:[46.31,11.60],
-    villach:[46.61,13.85], ljubljana:[46.06,14.51], kecskemet:[46.91,19.69], csopak:[46.96,17.90]
+    calais:[50.95,1.86], lux:[49.61,6.13], heilbronn:[49.14,9.22], nuremberg:[49.45,11.08],
+    regensburg:[49.01,12.10], passau:[48.57,13.43], wels:[48.16,14.03], graz:[47.07,15.44],
+    kormend:[47.01,16.60], veszprem:[47.09,17.91], csopak:[46.97,17.92], kecskemet:[46.91,19.69],
+    ulm:[48.40,9.99], fussen:[47.57,10.70], innsbruck:[47.27,11.39], brenner:[47.00,11.51],
+    garda:[45.50,10.73], villach:[46.61,13.85]
   };
 
-  // Shared Dolomites spine (both options). End = Kecskemét base (settle, then Csopak 24th).
-  const SPINE = [
-    ['Calais',P.calais],['Stuttgart',P.stuttgart],['Ulm',P.ulm],['Füssen',P.fussen],['Fernpass',P.fernpass],
-    ['Brenner',P.brenner],['Bolzano',P.bolzano],['Predazzo',P.predazzo],['Villach',P.villach],
-    ['Ljubljana',P.ljubljana],['Kecskemét',P.kecskemet]
-  ];
-  const SIGHT = {
-    'Calais':'Option A overnight (Thu 16) — Cité Europe / Coquelles by the terminal',
-    'Stuttgart':'overnight both options — flat autobahn day',
-    'Ulm':'on the autobahn line toward the Alps',
-    'Füssen':'Option A overnight (Sat 18) — Black Saturday OFF the Brenner (Neuschwanstein / lakes)',
-    'Fernpass':'Alpine pass, WEST of Munich — the whole point (no A8)',
-    'Brenner':'Alpine pass into Italy — crossed off-Saturday',
-    'Bolzano':'Dolomites gateway — bypass the ZTL',
-    'Predazzo':'overnight both options — Alpine Coaster Gardonè ★ (Erik) + Lago di Carezza (Ella)',
-    'Villach':'pass — on the long run toward Hungary',
-    'Ljubljana':'on the final leg toward the base — Bled 30 min away',
-    'Kecskemét':'the base — settle, then Csopak 24 Jul 🎉'
-  };
-  const routeGroup = L.layerGroup().addTo(map);
-  const endpt = {'Calais':1,'Kecskemét':1};
-
-  // waypoint circles (shared)
-  SPINE.forEach(([name,ll])=>{
-    if(endpt[name]){
-      L.circleMarker(ll,{radius:7,color:'#fff',weight:2,fillColor:'#1c5870',fillOpacity:1})
-        .addTo(routeGroup).bindTooltip(name,{permanent:true,direction:'top',className:'pin',offset:[0,-6]});
-    }else{
-      L.circleMarker(ll,{radius:4,color:'#fff',weight:1.5,fillColor:css('--sea-deep'),fillOpacity:1})
-        .addTo(routeGroup).bindTooltip(name,{direction:'top',className:'pin',offset:[0,-5]})
-        .bindPopup('<b>'+name+'</b><br>'+(SIGHT[name]||''));
+  // Two routes: A = THE PLAN (S7 direct), B = Italian variant
+  const ROUTES = {
+    A: {
+      color: css('--plan-a'),
+      spine: [
+        ['Calais',P.calais],['Luxembourg',P.lux],['Heilbronn',P.heilbronn],['Nuremberg',P.nuremberg],
+        ['Regensburg',P.regensburg],['Passau',P.passau],['Wels',P.wels],['Graz',P.graz],
+        ['Körmend',P.kormend],['Veszprém',P.veszprem],['Csopak',P.csopak]
+      ],
+      beds: [
+        {name:'Nuremberg', ll:P.nuremberg, tip:'Nuremberg — Tue 21 night (outside Umweltzone)'},
+        {name:'Graz',      ll:P.graz,      tip:'Graz — Wed 22 night (16:30 UK mtg from hotel)'},
+        {name:'Balaton',   ll:P.veszprem,  tip:'Veszprém/Balatonfüred — Thu 23 night (swim PM)'}
+      ]
+    },
+    B: {
+      color: css('--plan-b'),
+      spine: [
+        ['Calais',P.calais],['Luxembourg',P.lux],['Heilbronn',P.heilbronn],['Ulm',P.ulm],
+        ['Füssen',P.fussen],['Innsbruck',P.innsbruck],['Brenner',P.brenner],['Lake Garda',P.garda],
+        ['Villach',P.villach],['Graz',P.graz],['Körmend',P.kormend],['Veszprém',P.veszprem],['Csopak',P.csopak]
+      ],
+      beds: [
+        {name:'Ulm',       ll:P.ulm,      tip:'Ulm/Rothenburg — Tue 21 night'},
+        {name:'Lake Garda',ll:P.garda,    tip:'Lazise/Bardolino — Wed 22 night (mtg from hotel, evening swim)'},
+        {name:'Graz',      ll:P.graz,     tip:'Graz — Thu 23 night (out of Italy before red Friday)'}
+      ]
     }
-  });
+  };
+  const SIGHT = {
+    'Calais':'dawn arrival ~10:00 CET — EU lane on HU passports',
+    'Luxembourg':'cheapest fuel on the route — fill up',
+    'Heilbronn':'A6 — its decade of roadworks finished Dec 2025',
+    'Nuremberg':'overnight (THE PLAN) — pick a hotel outside the Umweltzone',
+    'Regensburg':'A3 resurfacing zone starts — transit midday',
+    'Passau':'the one shared roadwork pinch — midday Wed',
+    'Wels':'turn south — A9 Pyhrn (Gleinalm/Bosruck tunnels)',
+    'Graz':'overnight — 16:30 UK meeting from the hotel',
+    'Körmend':'M80 → road 8 — the new back door into Hungary',
+    'Veszprém':'20 min above Csopak — Balaton north shore',
+    'Csopak':'Villa Vanilla, Fri 24–27 🎉 then Kecskemét base',
+    'Ulm':'Italian variant overnight — position for the Alps',
+    'Füssen':'foothills — Neuschwanstein country',
+    'Innsbruck':'lunch stop — Golden Roof, Nordkette views',
+    'Brenner':'A13/A22 — tolls at the gate; A22 workless all summer',
+    'Lake Garda':'Lazise/Bardolino — SEA LIFE, evening swim; avoid ZTLs',
+    'Villach':'exit Italy via Tarvisio — dodges Slovenia A1 contraflow',
+    'Kecskemét':'the base — from Mon 27'
+  };
 
-  // route line — straight fallback, upgraded to real road geometry via OSRM
-  let _line=null;
+  const routeGroup = L.layerGroup().addTo(map);
+  let _line=null,_marks=[],_beds=[];
+  let activeVariant='A';
+
   function setLine(latlngs,color){
     if(_line) routeGroup.removeLayer(_line);
     _line=L.polyline(latlngs,{color:color,weight:4.5,opacity:.85,lineJoin:'round'}).addTo(routeGroup);
     _line.bringToBack();
   }
-  const wp = SPINE.map(s=>s[1]);
-  setLine(wp, css('--plan-a'));
-  (async function drawReal(){
+
+  async function draw(v){
+    activeVariant=v;
+    const R=ROUTES[v];
+    _marks.forEach(m=>routeGroup.removeLayer(m)); _marks=[];
+    _beds.forEach(m=>routeGroup.removeLayer(m)); _beds=[];
+    const endpt={'Calais':1,'Csopak':1};
+    R.spine.forEach(([name,ll])=>{
+      let m;
+      if(endpt[name]){
+        m=L.circleMarker(ll,{radius:7,color:'#fff',weight:2,fillColor:'#1c5870',fillOpacity:1})
+          .bindTooltip(name,{permanent:true,direction:'top',className:'pin',offset:[0,-6]});
+      }else{
+        m=L.circleMarker(ll,{radius:4,color:'#fff',weight:1.5,fillColor:css('--sea-deep'),fillOpacity:1})
+          .bindTooltip(name,{direction:'top',className:'pin',offset:[0,-5]})
+          .bindPopup('<b>'+name+'</b><br>'+(SIGHT[name]||''));
+      }
+      routeGroup.addLayer(m); _marks.push(m);
+    });
+    R.beds.forEach(b=>{
+      const m=L.marker(b.ll,{icon:L.divIcon({className:'',html:`<div class="bedpin" style="border-color:${R.color}">🛏</div>`,iconSize:[24,24],iconAnchor:[12,12]}),zIndexOffset:600});
+      m.bindTooltip('🛏 '+b.tip,{permanent:false,direction:'top',className:'pin sleep',offset:[0,-12]});
+      routeGroup.addLayer(m); _beds.push(m);
+    });
+    const wp=R.spine.map(s=>s[1]);
+    setLine(wp,R.color);
     try{
       const coords=wp.map(p=>`${p[1]},${p[0]}`).join(';');
       const res=await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`);
-      if(!res.ok) throw 0;
-      const data=await res.json();
-      const route=data.routes&&data.routes[0]; if(!route) throw 0;
-      const geo=route.geometry.coordinates.map(c=>[c[1],c[0]]);
-      setLine(geo, css(activeVariant==='A'?'--plan-a':'--plan-b'));
-    }catch(e){ /* keep straight-line fallback */ }
-  })();
-
-  // Option A / Option B overnight pins — same route, differ by crossing time
-  const VARIANTS = {
-    A: { color:css('--plan-a'), beds:[
-      {name:'Calais',    ll:P.calais,    tip:'Calais — Thu 16 night',                dbl:false},
-      {name:'Stuttgart', ll:P.stuttgart, tip:'Stuttgart — Fri 17 night',             dbl:false},
-      {name:'Füssen',    ll:P.fussen,    tip:'Füssen — Sat 18 night (off the Brenner)', dbl:false},
-      {name:'Predazzo',  ll:P.predazzo,  tip:'Predazzo — Sun 19 night (coaster PM)',  dbl:false}
-    ], base:'arrive base Mon 20' },
-    B: { color:css('--plan-b'), beds:[
-      {name:'Stuttgart', ll:P.stuttgart, tip:'Stuttgart — Sun 19 night (crossed AM)', dbl:false},
-      {name:'Predazzo',  ll:P.predazzo,  tip:'Predazzo — Mon 20 night (coaster PM)',  dbl:false}
-    ], base:'arrive base Tue 21 (long ~7h leg)' }
-  };
-
-  let activeVariant='A';
-  let _bedLayers=[];
-  function renderVariant(v){
-    activeVariant=v;
-    _bedLayers.forEach(l=>routeGroup.removeLayer(l));
-    _bedLayers=[];
-    const vd=VARIANTS[v];
-    vd.beds.forEach(b=>{
-      const m=L.marker(b.ll,{icon:L.divIcon({className:'',html:`<div class="bedpin" style="border-color:${vd.color}">🛏</div>`,iconSize:[24,24],iconAnchor:[12,12]}),zIndexOffset:600});
-      m.bindTooltip('🛏 '+b.tip+(b.dbl?' ×2':''),{permanent:true,direction:'top',className:'pin sleep',offset:[0,-12]});
-      routeGroup.addLayer(m); _bedLayers.push(m);
-    });
-    if(_line) _line.setStyle({color:vd.color});
+      if(res.ok){
+        const data=await res.json();
+        const route=data.routes&&data.routes[0];
+        if(route && activeVariant===v){
+          setLine(route.geometry.coordinates.map(c=>[c[1],c[0]]), R.color);
+        }
+      }
+    }catch(e){/* straight-line fallback stands */}
   }
 
-  // in-map Option A / Option B control (top-left)
   const VarControl = L.Control.extend({
     options:{position:'topleft'},
     onAdd(){
       const div=L.DomUtil.create('div','d-variant-map-ctrl');
-      div.innerHTML='<span class="dv-label">Cross</span><span class="d-variant-ctrl" id="varCtrl">'+
-        '<button data-v="A" class="active">A · Thu eve</button><button data-v="B">B · Sun AM</button></span>';
+      div.innerHTML='<span class="dv-label">Route</span><span class="d-variant-ctrl" id="varCtrl">'+
+        '<button data-v="A" class="active">Plan · S7 direct</button><button data-v="B">Italian · Garda</button></span>';
       L.DomEvent.disableClickPropagation(div);
       L.DomEvent.disableScrollPropagation(div);
       return div;
@@ -624,8 +606,8 @@
   st.textContent='.leaflet-tooltip.pin{background:#fff;border:1px solid #e7ddcb;border-radius:7px;font-weight:600;font-size:11px;color:#21201c;box-shadow:0 2px 8px rgba(0,0,0,.12);padding:2px 7px} .leaflet-tooltip.pin.sleep{border-color:var(--sun);font-weight:700} .leaflet-tooltip.pin::before{display:none}';
   document.head.appendChild(st);
 
-  renderVariant('A');
-  map.fitBounds(L.latLngBounds([P.calais,P.stuttgart,P.fussen,P.predazzo,P.ljubljana,P.kecskemet]).pad(0.12));
+  draw('A');
+  map.fitBounds(L.latLngBounds([P.calais,P.garda,P.csopak,P.nuremberg]).pad(0.10));
 
   const vc=document.getElementById('varCtrl');
   if(vc){
@@ -633,7 +615,7 @@
       const btn=e.target.closest('button[data-v]'); if(!btn) return;
       vc.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
-      renderVariant(btn.dataset.v);
+      draw(btn.dataset.v);
     });
   }
 </script>
